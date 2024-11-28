@@ -1,0 +1,13 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        spaceGrotesk: ["Space Grotesk", "sans-serif"],
+        barrio: ['"Barrio"', 'cursive'], // Add the font with a fallback
+      },
+    },
+  },
+  plugins: [],
+}

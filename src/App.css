@@ -1,0 +1,80 @@
+body {
+  /*cursor: url('/path/to/your-cursor-image.png'), auto;*/
+  cursor: url('./assets/cursor.png');
+}
+
+
+#title-1{
+  color: red; 
+}
+
+#title-2{
+
+}
+
+#title-3{
+
+}
+
+#title-4{
+
+}
+
+.barrio-regular {
+  font-family: "Barrio", system-ui;
+  border: 2px solid powderblue; 
+  color: #a31b1b; 
+  font-size: 100px;
+
+}
+
+
+.blinking-cursor::after {
+  content: "|"; /* This is the "cursor" character */
+  display: inline-block;
+  margin-left: 5px; /* Adds some space between the text and the cursor */
+  animation: blink 1.5s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75%{
+    opacity: 0 
+  }
+
+  
+}
+
+
+#intro-slider{
+  background-color: #FFECD6;
+}
+
+#main-screen-1{
+
+  background-color: #092335;
+  color: #FFD9AD; 
+}
+
+
+#nav-pannel{
+  background-color: #F0EBD8;
+}
+
+
+#image-of-me{
+
+  width: 100 px; 
+  
+  background-image: url('./assets/linkedinHeadshot.jpeg');
+
+}
+
+
+
+#image-of-me :hover{
+  
+  background-image: url('./assets/myPicture2.jpeg'); /* change image on hover */
+}
