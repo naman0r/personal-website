@@ -36,6 +36,11 @@ const App = () => {
           opacity: 1,
           duration: 1,
           delay: 0.5,
+        })
+        .to("#terminal", {
+          opacity: 1,
+          duration: 10,
+          delay: 2,
         });
     }, comp);
     return () => ctx.revert();
@@ -53,7 +58,7 @@ const App = () => {
           Software Enthusiast
         </h1>
         <h1 id="title-3" className="text-9xl">
-          idk
+          Aspiring Entrepreneur
         </h1>
       </div>
       <div

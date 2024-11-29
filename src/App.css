@@ -1,33 +1,27 @@
 body {
   /*cursor: url('/path/to/your-cursor-image.png'), auto;*/
-  cursor: url('./assets/cursor.png');
+  cursor: url("./assets/cursor.png");
 }
 
-
-#title-1{
-  color: red; 
+#title-1 {
+  color: red;
 }
 
-#title-2{
-
+#title-2 {
 }
 
-#title-3{
-
+#title-3 {
 }
 
-#title-4{
-
+#title-4 {
 }
 
 .barrio-regular {
   font-family: "Barrio", system-ui;
-  border: 2px solid powderblue; 
-  color: #a31b1b; 
+  border: 2px solid powderblue;
+  color: #a31b1b;
   font-size: 100px;
-
 }
-
 
 .blinking-cursor::after {
   content: "|"; /* This is the "cursor" character */
@@ -37,44 +31,36 @@ body {
 }
 
 @keyframes blink {
-  0%, 50%, 100% {
+  0%,
+  50%,
+  100% {
     opacity: 1;
   }
-  25%, 75%{
-    opacity: 0 
+  25%,
+  75% {
+    opacity: 0;
   }
-
-  
 }
 
-
-#intro-slider{
-  background-color: #FFECD6;
+#intro-slider {
+  background-color: #ffecd6;
 }
 
-#main-screen-1{
-
+#main-screen-1 {
   background-color: #092335;
-  color: #FFD9AD; 
+  color: #ffd9ad;
 }
 
-
-#nav-pannel{
-  background-color: #F0EBD8;
+#nav-pannel {
+  background-color: #233554;
 }
 
+#image-of-me {
+  width: 100 px;
 
-#image-of-me{
-
-  width: 100 px; 
-  
-  background-image: url('./assets/linkedinHeadshot.jpeg');
-
+  background-image: url("./assets/linkedinHeadshot.jpeg");
 }
 
-
-
-#image-of-me :hover{
-  
-  background-image: url('./assets/myPicture2.jpeg'); /* change image on hover */
+#image-of-me :hover {
+  background-image: url("./assets/myPicture2.jpeg"); /* change image on hover */
 }
