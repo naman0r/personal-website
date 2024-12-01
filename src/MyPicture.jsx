@@ -16,6 +16,13 @@ const MyPicture = () => {
       </div>
       <div>
         <p>WORK IN PROGRESS</p>
+        <p>
+          The terminal works, but the top navigation pannel does not navigate to
+          different pages yet.
+        </p>
+        <p>
+          Please feel free to play around with the terminal, it is pretty cool!
+        </p>
       </div>
     </div>
   );

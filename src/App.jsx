@@ -81,11 +81,11 @@ const App = () => {
       </div>
 
       <div>
-        <MyPicture />
+        <Terminal2 />
       </div>
 
       <div>
-        <Terminal2 />
+        <MyPicture />
       </div>
     </div>
   );
