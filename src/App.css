@@ -55,12 +55,33 @@ body {
   background-color: #233554;
 }
 
-#image-of-me {
-  width: 100 px;
-
-  background-image: url("./assets/linkedinHeadshot.jpeg");
+.image-container {
+  position: relative;
+  width: 200px; /* Set the width of the image */
+  height: 200px; /* Set the height of the image */
 }
 
-#image-of-me :hover {
-  background-image: url("./assets/myPicture2.jpeg"); /* change image on hover */
+.default-image,
+.hover-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.default-image {
+  opacity: 1; /* Default image is visible */
+}
+
+.hover-image {
+  opacity: 0; /* Hover image is hidden initially */
+}
+
+.image-container:hover .default-image {
+  opacity: 0; /* Hide default image on hover */
+}
+
+.image-container:hover .hover-image {
+  opacity: 1; /* Show hover image on hover */
 }

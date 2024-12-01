@@ -1,31 +1,15 @@
 import React from "react";
-import './App.css';
-
-
+import "./App.css";
+import MyImage from "./assets/linkedinHeadshot.jpeg"; // Default image
+import HoverImage from "./assets/myPicture2.jpeg"; // Hover image
 
 const MyPicture = () => {
-    
-    return (
+  return (
+    <div id="my-picture" className="image-container">
+      <img src={MyImage} alt="A picture of me" className="default-image" />
+      <img src={HoverImage} alt="Hover picture of me" className="hover-image" />
+    </div>
+  );
+};
 
-        <div>
-
-            <div class = "image-of-me"
-            ><img src="./assets/linkedinHeadshot.jpeg" alt="A picture of me" /></div>
-
-        </div>
-
-
-
-
-    );
-
-
-}
-
-
-
-export default MyPicture; 
-
-
-
-
+export default MyPicture;

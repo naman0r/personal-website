@@ -10,6 +10,9 @@ const App = () => {
   const comp = useRef(null);
 
   useLayoutEffect(() => {
+    // Scroll to the top of the page on load, annoying previously now fixed
+    window.scrollTo(0, 0);
+
     let ctx = gsap.context(() => {
       const t1 = gsap.timeline();
       t1.from("#intro-slider", {
@@ -17,11 +20,14 @@ const App = () => {
         duration: 1.3,
         delay: 0.3,
       })
-        .from(["#title-1", "#title-2", "#title-3"], {
-          opacity: 0,
-          y: "+=30",
-          stagger: 0.5,
-        })
+        .from(
+          ["#title-1", "#title-2", "#title-3", "#terminal", "#my-picture"],
+          {
+            opacity: 0,
+            y: "+=30",
+            stagger: 0.5,
+          }
+        )
         .to(["#title-1", "#title-2", "#title-3"], {
           opacity: 0,
           y: "-30",
@@ -37,7 +43,7 @@ const App = () => {
           duration: 1,
           delay: 0.5,
         })
-        .to("#terminal", {
+        .to("#my-picture", {
           opacity: 1,
           duration: 10,
           delay: 2,
@@ -73,11 +79,13 @@ const App = () => {
       <div>
         <TopNav />
       </div>
-      <div>
-        <Terminal2 />
-      </div>
+
       <div>
         <MyPicture />
+      </div>
+
+      <div>
+        <Terminal2 />
       </div>
     </div>
   );
