@@ -1,19 +1,22 @@
 import React from "react";
 import "./App.css";
-import MyImage from "./assets/linkedinHeadshot.jpeg"; // Default image
-import HoverImage from "./assets/myPicture2.jpeg"; // Hover image
+import MyImage from "./assets/linkedinHeadshot.jpeg"; // linkedin headshot
+import HoverImage from "./assets/myPicture2.jpeg"; // picture with layla
 
 const MyPicture = () => {
   return (
-    <div>
-      <div id="my-picture" className="image-container">
-        <img src={MyImage} alt="A picture of me" className="default-image" />
-        <img
-          src={HoverImage}
-          alt="Hover picture of me"
-          className="hover-image"
-        />
+    <div id="main-page-info-pannel">
+      <div>
+        <div id="my-picture" className="image-container">
+          <img src={MyImage} alt="A picture of me" className="default-image" />
+          <img
+            src={HoverImage}
+            alt="Hover picture of me"
+            className="hover-image"
+          />
+        </div>
       </div>
+
       <div>
         <p>WORK IN PROGRESS</p>
         <p>

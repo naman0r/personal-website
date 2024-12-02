@@ -85,3 +85,17 @@ body {
 .image-container:hover .hover-image {
   opacity: 1; /* Show hover image on hover */
 }
+
+#main-page-info-pannel {
+  background-color: aqua;
+  border-radius: 1.7em;
+  box-sizing: border-box;
+  align-items: center;
+  margin: 2em;
+  padding-left: 25px;
+
+  display: flex;
+  border: 2px solid red;
+  justify-content: space-between;
+  padding-right: 10em;
+}
