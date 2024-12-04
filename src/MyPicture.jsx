@@ -7,7 +7,7 @@ const MyPicture = () => {
   return (
     <div id="main-page-info-pannel">
       <div>
-        <div id="my-picture" className="image-container">
+        <div id="my-picture" className="image-container m-2">
           <img src={MyImage} alt="A picture of me" className="default-image" />
           <img
             src={HoverImage}
@@ -17,14 +17,15 @@ const MyPicture = () => {
         </div>
       </div>
 
-      <div>
-        <p>WORK IN PROGRESS</p>
+      <div class="font-spaceGrotesk ml-10 mr-0">
         <p>
-          The terminal works, but the top navigation pannel does not navigate to
-          different pages yet.
+          First Year student at Northeastern University Studying Computer
+          Science and Business Administration, with a minor in Mathematics.
         </p>
+        <p></p>
         <p>
-          Please feel free to play around with the terminal, it is pretty cool!
+          the terminal works, but the top navigation pannel does not navigate to
+          different pages yet.
         </p>
       </div>
     </div>

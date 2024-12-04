@@ -5,6 +5,7 @@ import Terminal from "./Terminal";
 import TopNav from "./TopNav";
 import MyPicture from "./MyPicture";
 import Terminal2 from "./Terminal2";
+import FooterMainPage from "./FooterMainPage";
 
 const App = () => {
   const comp = useRef(null);
@@ -86,6 +87,9 @@ const App = () => {
 
       <div>
         <MyPicture />
+      </div>
+      <div>
+        <FooterMainPage />
       </div>
     </div>
   );
