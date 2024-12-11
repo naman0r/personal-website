@@ -1,9 +1,18 @@
 import React from "react";
-import "../App.css";
-import gsap from "gsap";
+import TopNav from "../TopNav";
 
 const Projects = () => {
-  return <div>Projects</div>;
+  return (
+    <div>
+      <div>
+        <TopNav />
+      </div>
+      <div>
+        <p>Top Navigation Bar Placeholder</p>
+      </div>
+      <div>projects. Work in progress!</div>
+    </div>
+  );
 };
 
 export default Projects;

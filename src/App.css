@@ -1,6 +1,6 @@
 body {
   /*cursor: url('/path/to/your-cursor-image.png'), auto;*/
-  cursor: url("./assets/cursor.png");
+  cursor: url("./assets/cursor.png"); /* TO-DO : debug the cursor thing */
 }
 
 #title-1 {
