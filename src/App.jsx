@@ -4,7 +4,6 @@ import "./App.css";
 import Terminal from "./Terminal";
 import TopNav from "./TopNav";
 import MyPicture from "./MyPicture";
-import Terminal2 from "./Terminal2";
 import FooterMainPage from "./FooterMainPage";
 
 const App = () => {
@@ -82,7 +81,7 @@ const App = () => {
       </div>
 
       <div>
-        <Terminal2 />
+        <Terminal />
       </div>
 
       <div>
