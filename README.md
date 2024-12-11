@@ -5,7 +5,11 @@
 - react-router-dom for implementation of routing logic so I can have a robust personal website and not just a single page one.
 - hosted and can be viewed on namanrusia.netlify.app ; domain name to be bought soon.
 
+As of december 11th, 2024, here is some visual documentation of my website:
 ![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 
 Made by Naman Rusia, Last updated December 11th, 2024.
 
