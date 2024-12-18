@@ -8,12 +8,8 @@ import TopNav from "../TopNav";
 const Resume = () => {
   return (
     <div>
-      <TopNav />
       <div>
-        <p>
-          {" "}
-          Navigation bar doesnt show as of now. this is a work in progress!
-        </p>
+        <TopNav fadeIn={false} />
       </div>
     </div>
   );

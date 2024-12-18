@@ -77,7 +77,7 @@ const App = () => {
       </div>
 
       <div>
-        <TopNav />
+        <TopNav fadeIn={true} />
       </div>
 
       <div>
