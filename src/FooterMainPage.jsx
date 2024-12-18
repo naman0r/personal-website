@@ -5,30 +5,30 @@ const FooterMainPage = () => {
   return (
     // todo include icons for linkedin and github and email.
     <div class="footer">
-      <button id="shadow__btn">
+      <button id="footer_button">
         <a href="https://github.com/naman0r" target="_blank">
-          <p>My Github</p>
+          <span>My GitHub</span>
         </a>
       </button>
 
-      <button id="shadow__btn">
+      <button id="footer_button">
         <a
           href="https://github.com/naman0r/nr-personal-website-v1"
           target="_blank"
         >
-          Source code for this website!
+          <span> Source code</span>
         </a>
       </button>
 
-      <button id="shadow__btn">
+      <button id="footer_button">
         <a href="https://linkedin.com/in/namanrusia" target="_blank">
-          My Linkedin!
+          <span>My Linkedin!</span>
         </a>
       </button>
 
-      <button id="shadow__btn">
+      <button id="footer_button">
         <a href="#" target="_blank">
-          rusia.n@northeastern.edu
+          <span>Email me</span>
         </a>
       </button>
     </div>

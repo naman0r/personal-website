@@ -1,3 +1,4 @@
+import { a } from "framer-motion/client";
 import React, { useState } from "react";
 
 const Terminal = () => {
@@ -38,7 +39,10 @@ const Terminal = () => {
           newOutput.push(
             "> projects",
             "I love the process of bringing my Ideas to life. Check out the 'Projects' page through the top navigation pannelFor a detailed",
-            "look at some of my Projects."
+            "look at some of my Projects.",
+            <a href="./projects" target="_blank">
+              Click here to go to my projects page!
+            </a>
           );
           break;
         case "skills":
@@ -46,6 +50,9 @@ const Terminal = () => {
             "> skills",
             "JavaScript, React, Tailwind, Python, Swift, Git, Racket"
           );
+          break;
+        case "template":
+          newOutput.push();
           break;
         case "education":
           newOutput.push(
@@ -58,7 +65,7 @@ const Terminal = () => {
           newOutput.push(
             "> resume",
             "Link:",
-            <a href="./assets/temporaryResume.pdf" download>
+            <a href="./public/resume_12:18:2024.pdf" download>
               {" "}
               [Download here]
             </a>
