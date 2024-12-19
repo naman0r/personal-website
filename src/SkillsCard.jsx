@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const skills = [
-  "JS",
-  "wordpress",
-  "uiverse",
-  "Css",
-  "html",
-  "go",
+  "JavScript",
+  "CSS",
+  "HTML",
+  "Java",
+  "Tailwind.css",
+  "Arduino embedded design",
   "java",
   "ux/ui",
   "figma",
