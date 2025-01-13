@@ -35,7 +35,7 @@ const PlayPage = () => {
           transition: "background 0.1s linear",
         }}
       >
-        <h1 className="text-9xl font-bold font-spaceGrotesk">Misc fun stuff</h1>
+        <h1 className="text-9xl font-bold font-spaceGrotesk">Play Page</h1>
       </div>
       <div> to-do</div>
 

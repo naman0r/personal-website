@@ -38,4 +38,5 @@ Lightest Slate #ccd6f6
 White #e6f1ff
 Green #64ffda
 
-why is this not working
+- fix download and view resume pdf features on netlify. 
+- 

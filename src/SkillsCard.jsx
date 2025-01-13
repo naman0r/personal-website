@@ -8,8 +8,8 @@ const skills = [
   "Java",
   "Tailwind.css",
   "Arduino embedded design",
-  "java",
-  "ux/ui",
+  "Python",
+  "SpringBoot",
   "figma",
 ];
 

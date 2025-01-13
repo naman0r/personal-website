@@ -74,6 +74,8 @@ const App = () => {
         <h1 className="text-9xl font-bold font-spaceGrotesk blinking-cursor">
           &gt;Hi, I'm Naman.
         </h1>
+
+        <p>Located in Boston, MA; Raised in Singapore, Singapore</p> 
       </div>
 
       <div>
