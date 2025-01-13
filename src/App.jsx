@@ -75,7 +75,7 @@ const App = () => {
           &gt;Hi, I'm Naman.
         </h1>
 
-        <p>Located in Boston, MA; Raised in Singapore, Singapore</p> 
+        {/*<p>Located in Boston, MA; Raised in Singapore, Singapore</p> */}
       </div>
 
       <div>
