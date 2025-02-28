@@ -1,6 +1,5 @@
 import React from "react";
-import "./App.css"; // Include CSS for styling
-
+import "../styles/Footer.css";
 const FooterMainPage = () => {
   return (
     // todo include icons for linkedin and github and email.

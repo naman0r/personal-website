@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import TopNav from "../TopNav";
+import TopNav from "../components/TopNav";
 import { useLayoutEffect, useRef } from "react";
-import Footer from "../FooterMainPage";
+import Footer from "../components/FooterMainPage";
 import { div } from "framer-motion/client";
+import "../styles/Projects.css";
 
 const Projects = () => {
   const [gradient, setGradient] = useState({
@@ -37,7 +38,7 @@ const Projects = () => {
       >
         <h1 className="text-9xl font-bold font-spaceGrotesk">Projects</h1>
       </div>
-      <div> to-do</div>
+      <div className="projects-container"> to-do</div>
 
       <div>
         <Footer />

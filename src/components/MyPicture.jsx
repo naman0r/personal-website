@@ -1,7 +1,7 @@
 import React from "react";
-import "./App.css";
-import MyImage from "./assets/linkedinHeadshot.jpeg"; // linkedin headshot
-import HoverImage from "./assets/myPicture2.jpeg"; // picture with layla
+import "../App.css";
+import MyImage from "../assets/linkedinHeadshot.jpeg"; // linkedin headshot
+import HoverImage from "../assets/myPicture2.jpeg"; // picture with layla
 
 const MyPicture = () => {
   return (

@@ -7,6 +7,8 @@ import Projects from "./routes/Projects.jsx";
 import PlayPage from "./routes/PlayPage.jsx";
 import Resume from "./routes/Resume.jsx";
 
+// app entry point.
+
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/projects", element: <Projects /> },

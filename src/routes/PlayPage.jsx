@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
-import TopNav from "../TopNav";
-import Footer from "../FooterMainPage";
+import TopNav from "../components/TopNav";
+import Footer from "../components/FooterMainPage";
 import { div } from "framer-motion/client";
 
 const PlayPage = () => {
