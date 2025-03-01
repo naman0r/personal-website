@@ -1,0 +1,18 @@
+.title h1 {
+  font-size: 9rem;
+}
+
+.title p {
+  font-size: 2rem;
+}
+
+.title {
+  font-weight: bold;
+  color: #1a237e;
+  font-family: "Space Grotesk", sans-serif;
+  justify-items: center;
+}
+
+.resume-container {
+  height: 100vh;
+}

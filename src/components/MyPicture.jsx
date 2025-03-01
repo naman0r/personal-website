@@ -22,10 +22,10 @@ const MyPicture = () => {
           First Year student at Northeastern University Studying Computer
           Science and Business Administration, with a minor in Mathematics.
         </p>
-        <p></p>
+        <p>📍 Boston, MA</p>
         <p>
-          the terminal works, but the top navigation pannel does not navigate to
-          different pages yet.
+          Available for Internships this summer (Summer 2025), and for Co-op
+          Spring 2026 (January - August 2026)
         </p>
       </div>
     </div>
