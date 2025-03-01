@@ -4,6 +4,7 @@ import Terminal from "../components/Terminal";
 import TopNav from "../components/TopNav";
 import MyPicture from "../components/MyPicture";
 import FooterMainPage from "../components/FooterMainPage";
+import "../styles/App.css";
 
 const App = () => {
   const comp = useRef(null);
@@ -28,12 +29,13 @@ const App = () => {
         </h1>
       </div> */}
       <div
-        className="h-screen flex bg-gray-950 justify-center place-items-center"
+        className="h-screen flex bg-gray-950 justify-center place-items-center greeting"
         id="main-screen-1"
       >
         <h1 className="text-9xl font-bold font-spaceGrotesk blinking-cursor">
           &gt;Hi, I'm Naman.
         </h1>
+        <p>📍 Boston, MA. Raised in Singapore</p>
 
         {/*<p>Located in Boston, MA; Raised in Singapore, Singapore</p> */}
       </div>

@@ -65,7 +65,7 @@ const Terminal = () => {
           newOutput.push(
             "> resume",
             "Link:",
-            <a href="./public/resume_12:18:2024.pdf" download>
+            <a href="./resume_website.pdf" download>
               {" "}
               [Download here]
             </a>

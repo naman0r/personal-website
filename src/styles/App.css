@@ -1,0 +1,11 @@
+.greeting h1 {
+}
+
+.greeting p {
+  font-size: 2rem;
+}
+
+.greeting {
+  flex-direction: column;
+  gap: 50px;
+}
