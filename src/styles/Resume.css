@@ -14,5 +14,50 @@
 }
 
 .resume-container {
-  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+  background-color: rgb(230, 231, 184);
+}
+
+.resume-view-link {
+  justify-content: center;
+  color: red;
+}
+
+.experience-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  padding: 20px;
+  width: 70%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.experience-card img {
+  height: 80px;
+  width: auto;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.experience-card h1 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.experience-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.experience-card p {
+  font-size: 1em;
+  margin: 5px 0;
 }
