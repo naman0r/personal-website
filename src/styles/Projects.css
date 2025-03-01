@@ -1,3 +1,152 @@
-.projects-container {
+.projects-page {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.projects-header {
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.projects-title {
+  font-weight: bold;
+  color: #1a237e;
+  font-family: "Space Grotesk", sans-serif;
+}
+.projects-title h1 {
+  font-size: 9rem;
+}
+
+.projects-title p {
+  font-size: 2rem;
+  color: black;
+}
+
+.projects-content {
+  padding: 4rem 2rem;
+
+  margin: 0 auto;
+  width: 100%;
+  background-color: #617d7738;
+}
+
+.category-filter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.category-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-button:hover {
+  background-color: #e0e0e0;
+}
+
+.category-button.active {
+  background-color: #64ffda;
+  color: #1a237e;
+}
+
+.project-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.project-description {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.project-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.category-tag {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.875rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #1a237e;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+  background-color: #0d1657;
+}
+
+.timeline-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects-title {
+    font-size: 4rem;
+  }
+
+  .projects-content {
+    padding: 2rem 1rem;
+  }
+
+  .category-filter {
+    gap: 0.5rem;
+  }
+
+  .category-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.875rem;
+  }
 }

@@ -1,35 +1,31 @@
 import React from "react";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa"; // Import icons
 import "../styles/Footer.css";
+
 const FooterMainPage = () => {
   return (
-    // todo include icons for linkedin and github and email.
-    <div class="footer">
-      <button id="footer_button">
-        <a href="https://github.com/naman0r" target="_blank">
-          <span>My GitHub</span>
-        </a>
-      </button>
+    <div className="footer">
+      <a
+        href="https://github.com/naman0r"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="footer-link"
+      >
+        <FaGithub className="footer-icon" />
+      </a>
 
-      <button id="footer_button">
-        <a
-          href="https://github.com/naman0r/nr-personal-website-v1"
-          target="_blank"
-        >
-          <span> Source code</span>
-        </a>
-      </button>
+      <a
+        href="https://linkedin.com/in/namanrusia"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="footer-link"
+      >
+        <FaLinkedin className="footer-icon" />
+      </a>
 
-      <button id="footer_button">
-        <a href="https://linkedin.com/in/namanrusia" target="_blank">
-          <span>My Linkedin!</span>
-        </a>
-      </button>
-
-      <button id="footer_button">
-        <a href="#" target="_blank">
-          <span>Email me</span>
-        </a>
-      </button>
+      <a href="mailto:your.email@example.com" className="footer-link">
+        <FaEnvelope className="footer-icon" />
+      </a>
     </div>
   );
 };
