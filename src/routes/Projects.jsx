@@ -17,7 +17,7 @@ const Projects = () => {
       title: "MindMapr: AI powered Study Tool",
       description:
         "A Full Stack AI powered study tool that generates easy to understand visualizations from student's study notes. ",
-      image: "../../public/mindmaor-homepage.png",
+      image: "../../mmr.png",
       categories: ["Full Stack", "React", "Node.js", "REST Api", "MongoDB"],
       github: "https://github.com/naman0r/MindMapr",
       demo: "https://www.youtube.com/watch?v=SWPsYICRIOQ",
