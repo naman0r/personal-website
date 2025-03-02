@@ -15,11 +15,13 @@
 
 .resume-container {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
   gap: 20px;
   background-color: rgb(230, 231, 184);
+  padding-left: 25%;
 }
 
 .resume-view-link {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../App.css";
+import "../styles/PlayPage.css";
 import TopNav from "../components/TopNav";
 import Footer from "../components/FooterMainPage";
 import { div } from "framer-motion/client";
@@ -37,7 +37,11 @@ const PlayPage = () => {
       >
         <h1 className="text-9xl font-bold font-spaceGrotesk">Play Page</h1>
       </div>
-      <div> to-do</div>
+      <div className="play-page-content">
+        {" "}
+        to-do
+        <img src="../../meme-image.png" alt="" />
+      </div>
 
       <div>
         <Footer />

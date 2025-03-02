@@ -1,0 +1,7 @@
+.play-page-content {
+  height: 100vh;
+}
+
+.play-page-content > img {
+  height: 800px;
+}
