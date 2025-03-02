@@ -35,13 +35,13 @@ const Resume = () => {
       time: "Sep 2024 - Current",
       role: "Software Engineer at a hardware team",
     },
-    {
-      title: "",
-      description: "",
-      img: "../../.........",
-      time: "",
-      role: "",
-    },
+    // {
+    //   title: "",
+    //   description: "",
+    //   img: "../../.........",
+    //   time: "",
+    //   role: "",
+    // },
   ];
 
   const handleMouseMove = (event) => {

@@ -16,9 +16,16 @@ const Projects = () => {
     {
       title: "MindMapr: AI powered Study Tool",
       description:
-        "A Full Stack AI powered study tool that generates easy to understand visualizations from student's study notes. ",
+        "A Full Stack AI powered study tool that generates easy to understand visualizations from student's study notes. Sign in with google with Firebase Auth",
       image: "../../mmr.png",
-      categories: ["Full Stack", "React", "Node.js", "REST Api", "MongoDB"],
+      categories: [
+        "Full Stack",
+        "React",
+        "Node.js",
+        "REST Api",
+        "MongoDB",
+        "Firebase",
+      ],
       github: "https://github.com/naman0r/MindMapr",
       demo: "https://www.youtube.com/watch?v=SWPsYICRIOQ",
       date: "2025, Completed",
@@ -27,9 +34,9 @@ const Projects = () => {
     {
       title: "BackBuddy App",
       description:
-        "App integrated Arduin Product that helps users improve and track their posture. Fits on any chair.",
+        "App-integrated Arduino Product that helps users improve and track their posture. Fits on any chair. Works with Pressure Values which inflate and deflate to correct posture. App connects with hardware with an HC-5 BLE Module. ",
       image: "../../backbuddy-app.png",
-      categories: ["React Native", "Arduino", "Arduino IoT"],
+      categories: ["React Native", "Arduino", "Arduino IoT", "Firebase"],
       github: "https://github.com/naman0r/backbuddy-app",
       demo: "",
       date: "2025, Current",
@@ -49,7 +56,7 @@ const Projects = () => {
     {
       title: "NUtrition",
       description:
-        "Full Stack app that scrapes nutritional information from the University Dining Hall wesbite, and users are allowed to keep a detailed log of their meals at thre ning hall ",
+        "Full Stack app that scrapes nutritional information from the University Dining Hall wesbite, and users are allowed to keep detailed logs and track their meals and diet over time, and realize trends",
       image: "../../NUtrition.png",
       categories: ["Selenium.py", "React", "Firebase", "Flask", "Supabase"],
       github: "https://github.com/Oasis-NEU/sp25-group-11",
@@ -59,7 +66,8 @@ const Projects = () => {
     },
     {
       title: "TaNews",
-      description: "Full Stack news app with posting, reading, liking",
+      description:
+        "Full Stack news app with posting, reading, liking. Admin and User separation, backend using Flask.",
       image: "../../tanews.png",
       categories: ["Docker", "Flask", "React", "TypeScript", "MySQL"],
       github: "https://github.com/IpDaniel/tanews/tree/naman",
@@ -70,7 +78,7 @@ const Projects = () => {
     {
       title: "Personal Website",
       description:
-        "Interractive, easy to use personal website to showcase my work.",
+        "Interractive, easy to use personal website to showcase my work. Built with React.js",
       image: "../../personal-website.png",
       categories: [
         "React",
