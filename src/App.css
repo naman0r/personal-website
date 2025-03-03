@@ -165,3 +165,22 @@ body {
 #footer_button span:not(hover) {
   transition: all 1s;
 }
+
+.projects-button {
+  color: rgb(200, 86, 86);
+  font-weight: bold;
+}
+
+.projects-button:hover {
+  color: white;
+  transition: ease-in-out 1.5s;
+}
+
+.topnav-buttons {
+  font-weight: 400;
+}
+
+.topnav-buttons:hover {
+  color: rgb(32, 214, 19);
+  transition: ease-in-out 1s;
+}

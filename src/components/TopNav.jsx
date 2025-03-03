@@ -15,10 +15,18 @@ const TopNav = ({ fadeIn }) => {
       <button id="top-nav-button">Skills</button>
       <button id="top-nav-button">Resume</button>
       <button id="top-nav-button">Play</button>*/}
-      <Link to="/">Home</Link>
-      <Link to="/projects">Projects</Link>
-      <Link to="/resume">Resume</Link>
-      <Link to="/playpage">Play</Link>
+      <Link to="/" className="topnav-buttons">
+        Home
+      </Link>
+      <Link to="/projects" className="projects-button">
+        Projects
+      </Link>
+      <Link to="/resume" className="topnav-buttons">
+        Resume
+      </Link>
+      <Link to="/playpage" className="topnav-buttons">
+        More
+      </Link>
     </div>
   );
 };

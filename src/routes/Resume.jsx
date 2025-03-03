@@ -35,6 +35,14 @@ const Resume = () => {
       time: "Sep 2024 - Current",
       role: "Software Engineer at a hardware team",
     },
+    {
+      title: "Oais Project Development",
+      description:
+        "Building a Northeastern-centric full stack app aimed towards helping freshmen track macros and neutritional information at dining hall meals",
+      img: "../../NUtrition.png",
+      time: "Jan 2025 - Current",
+      role: "Software Developer",
+    },
     // {
     //   title: "",
     //   description: "",
