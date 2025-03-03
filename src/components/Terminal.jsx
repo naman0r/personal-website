@@ -104,7 +104,7 @@ const Terminal = () => {
   return (
     <div
       id="terminal"
-      className="bg-gray-800 p-6 rounded-md mx-10 my-10 max-h-[60vh] overflow-y-scroll shadow-lg text-gray-100 font-mono"
+      className="bg-gray-800 p-6 rounded-md mx-10 my-10 max-h-[60vh] overflow-y-scroll shadow-lg text-gray-100 font-mono terminal"
     >
       <div className="text-green-400 mb-4">
         Welcome to your Terminal, {guest}!
