@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import "../styles/PlayPage.css";
 import TopNav from "../components/TopNav";
 import Footer from "../components/FooterMainPage";
 import { div } from "framer-motion/client";
 
 const PlayPage = () => {
+  const comp = useRef(null);
+  useLayoutEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   const [gradient, setGradient] = useState({
     x: 50,
     y: 50,
@@ -22,7 +28,7 @@ const PlayPage = () => {
   };
 
   return (
-    <div>
+    <div className="relative" ref={comp}>
       <div>
         <TopNav />
       </div>

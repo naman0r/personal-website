@@ -35,7 +35,7 @@ const Projects = () => {
     {
       title: "MindMapr: AI powered Study Tool",
       description:
-        "A Full Stack AI powered study tool that generates easy to understand visualizations from student's study notes. Sign in with google with Firebase Auth",
+        "A Full Stack AI powered study tool that generates easy to understand visualizations from student's study notes. Authentication implemented, MongoDB database.",
       image: "../../mmr.png",
       categories: [
         "Full Stack",
@@ -48,7 +48,7 @@ const Projects = () => {
       github: "https://github.com/naman0r/MindMapr",
       demo: "https://www.youtube.com/watch?v=SWPsYICRIOQ",
       date: "2025, Completed",
-      color: "#2196f3",
+      color: "#ff9800",
     },
     {
       title: "BackBuddy App",
@@ -62,7 +62,7 @@ const Projects = () => {
       color: "#4caf50",
     },
     {
-      title: "Car2Divr",
+      title: "Car2Drvr",
       description:
         "A full stack App that allows users to find tailored reccomendations for cars to buy based on their needs and provides a price range that informs the user and prevents overpaying",
       image: "../../car2drvr.png",
@@ -81,12 +81,12 @@ const Projects = () => {
       github: "https://github.com/Oasis-NEU/sp25-group-11",
       demo: "",
       date: "2025, Current",
-      color: "#ff9800",
+      color: "#4caf50",
     },
     {
       title: "TaNews",
       description:
-        "Full Stack news app with posting, reading, liking. Admin and User separation, backend using Flask.",
+        "Full Stack news app with posting, reading, liking, Admin and User separation, etc.",
       image: "../../tanews.png",
       categories: ["Docker", "Flask", "React", "TypeScript", "MySQL"],
       github: "https://github.com/IpDaniel/tanews/tree/naman",
@@ -106,10 +106,10 @@ const Projects = () => {
         "PrimeReact",
         "JavaScript",
       ],
-      github: "https://github.com/naman0r/nr-personal-website-v1",
-      demo: "https://namanrusia.netlify.app",
-      date: "2024, completed and on Chrome Web Store",
-      color: "#ff9800",
+      github: "https://github.com/naman0r/personal-website",
+      demo: "https://namanrusia.com",
+      date: "2024, deployed",
+      color: "#4caf50",
     },
     {
       title: "DoNow!: Chrome Extension",

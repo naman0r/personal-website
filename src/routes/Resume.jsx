@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import TopNav from "../components/TopNav.jsx";
 import Footer from "../components/FooterMainPage.jsx";
 import "../styles/Resume.css";
@@ -6,6 +7,11 @@ import { div } from "framer-motion/client";
 import { motion } from "framer-motion";
 
 const Resume = () => {
+  const comp = useRef(null);
+  useLayoutEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   const [gradient, setGradient] = useState({
     x: 50,
     y: 50,
