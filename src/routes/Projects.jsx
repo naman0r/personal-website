@@ -8,9 +8,28 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import "../styles/Projects.css";
 
+import {
+  DiReact,
+  DiPython,
+  DiJavascript,
+  DiGit,
+  DiGithubBadge,
+} from "react-icons/di";
+
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [gradient, setGradient] = useState({ x: 50, y: 50 });
+
+  const techIcons = {
+    React: <DiReact size={24} color="#61DBFB" />,
+    Python: <DiPython size={24} color="#3776AB" />,
+    JavaScript: <DiJavascript size={24} color="#F7DF1E" />,
+    Git: <DiGit size={24} color="#F05032" />,
+    GitHub: <DiGithubBadge size={24} color="black" />,
+    Flask: <DiPython size={24} color="green" />, // Flask icon is not in react-icons, so using Python
+    NodeJs: <DiJavascript size={24} color="green" />,
+    Firebase: <DiReact size={24} color="orange" />,
+  };
 
   const projects = [
     {
@@ -182,6 +201,7 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
+
                 <div className="project-links">
                   <a
                     href={project.github}
