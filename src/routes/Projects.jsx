@@ -33,6 +33,24 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "MindfulMomentum",
+      description:
+        "A Smart, Productivity, habits, and journalism app. Built with user security and scalability in mind. Will be deplpoyed soon approximately the end of march",
+      image: "../../mindfulmomentum.png",
+      categories: [
+        "Tailwind",
+        "Supabase",
+        "React.js",
+        "Flask",
+        "Firebase",
+        "JSON Web Tokens",
+      ],
+      github: "https://github.com/naman0r/mindfulmomentum",
+      demo: "",
+      date: "2025, Current",
+      color: "#4caf50",
+    },
+    {
       title: "MindMapr: AI powered Study Tool",
       description:
         "A Full Stack AI powered study tool that generates easy to understand visualizations from student's study notes. Authentication implemented, MongoDB database.",
