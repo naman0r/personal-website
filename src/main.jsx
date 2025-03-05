@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Projects from "./routes/Projects.jsx";
 import PlayPage from "./routes/PlayPage.jsx";
 import Resume from "./routes/Resume.jsx";
+import Error404 from "./routes/Error404.jsx";
 
 // app entry point.
 
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
   { path: "/projects", element: <Projects /> },
   { path: "/playpage", element: <PlayPage /> },
   { path: "/resume", element: <Resume /> },
+  { path: "/*", element: <Error404 /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
