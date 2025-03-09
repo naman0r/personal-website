@@ -35,7 +35,7 @@ const Projects = () => {
     {
       title: "MindfulMomentum",
       description:
-        "A Smart, Productivity, habits, and journalism app. Built with user security and scalability in mind. Will be deplpoyed soon approximately the end of march",
+        "A Smart, Productivity, habits, and journalism app. Built with user security and scalability in mind. Works with a Chrome Extension , which has a focus mode and task sync feature. Deployed with Vercel (frontend) and Railway (backend).",
       image: "../../mindfulmomentum.png",
       categories: [
         "Tailwind",
@@ -46,8 +46,8 @@ const Projects = () => {
         "JSON Web Tokens",
       ],
       github: "https://github.com/naman0r/mindfulmomentum",
-      demo: "",
-      date: "2025, Current",
+      demo: "https://mindfulmomentum-frontend.vercel.app/",
+      date: "2025, Current, Deployed (Beta)",
       color: "#4caf50",
     },
     {
