@@ -47,7 +47,7 @@ const Projects = () => {
       ],
       github: "https://github.com/naman0r/mindfulmomentum",
       demo: "https://mindfulmomentum-frontend.vercel.app/",
-      date: "2025, Current, Deployed (Beta)",
+      date: "March 2025, Current, Deployed (Beta)",
       color: "#4caf50",
     },
     {
@@ -65,7 +65,7 @@ const Projects = () => {
       ],
       github: "https://github.com/naman0r/MindMapr",
       demo: "https://www.youtube.com/watch?v=SWPsYICRIOQ",
-      date: "2025, Completed",
+      date: "Jan-March 2025, Completed",
       color: "#ff9800",
     },
     {
@@ -76,7 +76,7 @@ const Projects = () => {
       categories: ["React Native", "Arduino", "Arduino IoT", "Firebase"],
       github: "https://github.com/naman0r/backbuddy-app",
       demo: "",
-      date: "2025, Current",
+      date: "Spring 2025, Current",
       color: "#4caf50",
     },
     {
@@ -87,7 +87,7 @@ const Projects = () => {
       categories: ["Full Stack", "React", "Firebase", "Flask"],
       github: "https://github.com/somshrivastava/car2drvr",
       demo: "https://car2drvr-finhacks.firebaseapp.com/",
-      date: "2025, Deployed",
+      date: "January 2025, FinHacks Hackathon, Deployed",
       color: "#ff9800",
     },
     {
@@ -98,7 +98,7 @@ const Projects = () => {
       categories: ["Selenium.py", "React", "Firebase", "Flask", "Supabase"],
       github: "https://github.com/Oasis-NEU/sp25-group-11",
       demo: "",
-      date: "2025, Current",
+      date: "Spring 2025, Current",
       color: "#4caf50",
     },
     {
@@ -109,7 +109,7 @@ const Projects = () => {
       categories: ["Docker", "Flask", "React", "TypeScript", "MySQL"],
       github: "https://github.com/IpDaniel/tanews/tree/naman",
       demo: "",
-      date: "2025, Current",
+      date: "Spring 2025, Current",
       color: "#ff9800",
     },
     {
@@ -126,7 +126,7 @@ const Projects = () => {
       ],
       github: "https://github.com/naman0r/personal-website",
       demo: "https://namanrusia.com",
-      date: "2024, deployed",
+      date: "December 2024 - Current, deployed",
       color: "#4caf50",
     },
     {
@@ -137,7 +137,7 @@ const Projects = () => {
       categories: ["HTML", "CSS", "JavaScript"],
       github: "https://github.com/naman0r/doNow_chrome_extension",
       demo: "https://chromewebstore.google.com/detail/donow-to-do-list/ledniccgbjopheokhlcpaajlblopaegf",
-      date: "2024, completed and on Chrome Web Store",
+      date: "November 2024, completed and on Chrome Web Store",
       color: "#ff9800",
     },
   ];
