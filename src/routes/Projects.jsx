@@ -33,6 +33,25 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "HackVerseAI",
+      description:
+        "Coming soon 👀. Hands down the best AI Project creation platform, geared towards students to help them mindfully and purposefully create Projects through guidance in the world of Cursor, Copilot, etc. where learning is not incentivized.",
+      image: "../../hackverse.png",
+      categories: [
+        "NextJs",
+        "TypeScript",
+        "RAG",
+        "Vector Database",
+        "Tailwind",
+        "Supabase",
+        "Flask/FastAPI",
+      ],
+      github: "https://github.com/naman0r/HackVerseAI",
+      demo: "https://hackverseai.vercel.app",
+      date: "March 2025, Current, My Latest Project!",
+      color: "#ff9800",
+    },
+    {
       title: "MindfulMomentum",
       description:
         "A Smart, Productivity, habits, and journalism app. Built with user security and scalability in mind. Works with a Chrome Extension , which has a focus mode and task sync feature. Deployed with Vercel (frontend) and Railway (backend).",
@@ -97,7 +116,7 @@ const Projects = () => {
       image: "../../NUtrition.png",
       categories: ["Selenium.py", "React", "Firebase", "Flask", "Supabase"],
       github: "https://github.com/Oasis-NEU/sp25-group-11",
-      demo: "",
+      demo: "https://nutrition-oasis.vercel.app/",
       date: "Spring 2025, Current",
       color: "#4caf50",
     },
@@ -202,7 +221,7 @@ const Projects = () => {
               key={project.title}
               date={project.date}
               iconStyle={{ background: project.color, color: "#fff" }}
-              icon={<div className="timeline-icon">⭕️</div>}
+              icon={<div className="timeline-icon">🔨</div>}
             >
               <div className="project-card">
                 <img
