@@ -35,7 +35,7 @@ const Projects = () => {
     {
       title: "HackVerseAI",
       description:
-        "Coming soon 👀. Hands down the best AI Project creation platform, geared towards students to help them mindfully and purposefully create Projects through guidance in the world of Cursor, Copilot, etc. where learning is not incentivized.",
+        "Coming soon 👀. Hands down the best AI Project creation platform, geared towards students to help them mindfully and purposefully create Projects through guidance in the world of Cursor, Copilot, etc. where learning is not incentivized. Visit the Demo link for the latest news and updates!",
       image: "../../hackverse.png",
       categories: [
         "NextJs",
