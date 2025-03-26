@@ -86,7 +86,7 @@ const Resume = () => {
         </div>
       </div>
       <div className="resume-container">
-        <a href="../../march20_2025_resume.pdf" target="_blank">
+        <a href="../../resume.pdf" target="_blank">
           Click to view my resume!
         </a>
 
