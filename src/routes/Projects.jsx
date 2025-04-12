@@ -32,7 +32,7 @@ const Projects = () => {
   };
 
   const projects = [
-    {
+    /*     {
       title: "HackVerseAI",
       description:
         "Coming soon 👀. Hands down the best AI Project creation platform, geared towards students to help them mindfully and purposefully create Projects through guidance in the world of Cursor, Copilot, etc. where learning is not incentivized. Visit the Demo link for the latest news and updates!",
@@ -50,7 +50,7 @@ const Projects = () => {
       demo: "https://hackverseai.vercel.app",
       date: "March 2025, Current, My Latest Project!",
       color: "#ff9800",
-    },
+    }, */
     {
       title: "MindfulMomentum",
       description:
@@ -67,6 +67,23 @@ const Projects = () => {
       github: "https://github.com/naman0r/mindfulmomentum",
       demo: "https://mindfulmomentum-frontend.vercel.app/",
       date: "March 2025, Current, Deployed (Beta)",
+      color: "#4caf50",
+    },
+    {
+      title: "AMA Automator - Internal Tooling",
+      description:
+        "Developed a full stack web app for TAMID at Northeastern to help with automating the Ask-me-anything process- which is held on slack. Impelemented Auth, used Slack Webhooks to create a slack agent.",
+      image: "../../ama.png",
+      categories: [
+        "Supabase",
+        "React.js",
+        "Flask",
+        "Slack WebHooks",
+        "Internal Tooling",
+      ],
+      github: "https://github.com/naman0r/ama-consulting-project",
+      demo: "",
+      date: "March 2025 - Current",
       color: "#4caf50",
     },
     {
