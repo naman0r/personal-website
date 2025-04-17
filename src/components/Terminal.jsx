@@ -602,11 +602,9 @@ const Terminal = () => {
         case "funfact":
           const funFacts = [
             "I can crack my neck really loud",
-            "I've visited 20+ countries around the world",
-            "I built my first website when I was 12 years old",
-            "I'm a coffee enthusiast (try the 'coffee' command)",
-            "I can solve a Rubik's cube in under 2 minutes",
-            "My favorite programming language is Python",
+            "I've visited 16+ countries around the world",
+            "I can solve a Rubik's cube in under 30 seconds",
+            "My favorite programming Framework is React",
             "I'm a night owl and do my best coding after midnight",
           ];
           newOutput.push({
@@ -696,6 +694,15 @@ const Terminal = () => {
           newOutput.push(
             { type: "section", content: "Here's a programming joke:" },
             { type: "output", content: getRandomJoke() }
+          );
+          break;
+        case "secret":
+          newOutput.push(
+            {
+              type: "section",
+              content: "How did you know this was here?",
+            },
+            { type: "output", content: "SSHHHHHHH!" }
           );
           break;
         case "quote":
