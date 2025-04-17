@@ -11,13 +11,150 @@ import {
   FaLaptopCode,
   FaCoffee,
   FaStar,
+  FaSpotify,
 } from "react-icons/fa";
 
+// Temporary project data store (Ideally fetch or import)
+const projectsData = [
+  {
+    title: "MindfulMomentum",
+    description:
+      "A Smart, Productivity, habits, and journalism app. Built with user security and scalability in mind. Works with a Chrome Extension , which has a focus mode and task sync feature. Deployed with Vercel (frontend) and Railway (backend).",
+    date: "March 2025",
+  },
+  {
+    title: "AMA Automator - Internal Tooling",
+    description:
+      "Developed a full stack web app for TAMID at Northeastern to help with automating the Ask-me-anything process- which is held on slack. Impelemented Auth, used Slack Webhooks to create a slack agent.",
+    date: "March 2025",
+  },
+  {
+    title: "MindMapr: AI powered Study Tool",
+    description:
+      "A Full Stack AI powered study tool that generates easy to understand visualizations from student's study notes. Authentication implemented, MongoDB database.",
+    date: "Jan-March 2025",
+  },
+  {
+    title: "BackBuddy App",
+    description:
+      "App-integrated Arduino Product that helps users improve and track their posture. Fits on any chair. Works with Pressure Values which inflate and deflate to correct posture. App connects with hardware with an HC-5 BLE Module. ",
+    date: "Spring 2025",
+  },
+  {
+    title: "Car2Drvr",
+    description:
+      "A full stack App that allows users to find tailored reccomendations for cars to buy based on their needs and provides a price range that informs the user and prevents overpaying",
+    date: "January 2025",
+  },
+  {
+    title: "NUtrition",
+    description:
+      "Full Stack app that scrapes nutritional information from the University Dining Hall wesbite, and users are allowed to keep detailed logs and track their meals and diet over time, and realize trends",
+    date: "Spring 2025",
+  },
+  {
+    title: "TaNews",
+    description:
+      "Full Stack news app with posting, reading, liking, Admin and User separation, etc.",
+    date: "Spring 2025",
+  },
+  {
+    title: "Personal Website",
+    description:
+      "Interractive, easy to use personal website to showcase my work. Built with React.js",
+    date: "December 2024",
+  },
+  {
+    title: "DoNow!: Chrome Extension",
+    description:
+      "A Smart and Simple-to-use To-do list app, conveniently in the form of a Google Chrome Extension. Go give it a try!",
+    date: "November 2024",
+  },
+];
+
+// Function to generate a fake commit hash
+const generateCommitHash = (str) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return Math.abs(hash).toString(16).substring(0, 7);
+};
+
+// Get ASCII art banner (extracted for reusability)
+const getASCIIArt = (type) => {
+  switch (type) {
+    case "name":
+      return [
+        {
+          type: "ascii",
+          content: [
+            "  _   _                               _____           _       ",
+            " | \\ | |                             |  __ \\         (_)      ",
+            " |  \\| | __ _ _ __ ___   __ _ _ __   | |__) |   _ ___ _  __ _ ",
+            " | . ` |/ _` | '_ ` _ \\ / _` | '_ \\  |  _  / | | / __| |/ _` |",
+            " | |\\  | (_| | | | | | | (_| | | | | | | \\ \\ |_| \\__ \\ | (_| |",
+            " |_| \\_|\\__,_|_| |_| |_|\\__,_|_| |_| |_|  \\_\\__,_|___/_|\\__,_|",
+            "                                                              ",
+          ],
+        },
+      ];
+    case "coffee":
+      return [
+        {
+          type: "ascii",
+          content: [
+            "      ( (    ",
+            "       ) )   ",
+            "    .______.  ",
+            "    |      |] ",
+            "    \\      /  ",
+            "     `----'   ",
+          ],
+        },
+      ];
+    case "computer":
+      return [
+        {
+          type: "ascii",
+          content: [
+            "     .---.         ",
+            "     |   |         ",
+            "     |   |         ",
+            "     |   |         ",
+            "     |   |.--.     ",
+            "     |   |   :     ",
+            "     |   |   |     ",
+            "     |   |   |     ",
+            "     |   |   |     ",
+            "     |   |   |     ",
+            "     |   |   |     ",
+            " ____|   |   |     ",
+            "|    |   |   |     ",
+            "|    |   |   |     ",
+            "|____|   |___|     ",
+            "     '---'         ",
+          ],
+        },
+      ];
+    default:
+      return [{ type: "error", content: "ASCII art not found" }];
+  }
+};
+
 const Terminal = () => {
-  const [output, setOutput] = useState([
-    { type: "system", content: "Website Terminal v1.0.0" },
-    { type: "system", content: "Type 'help' to see available commands" },
-  ]);
+  // Initial output now includes the banner
+  const initialOutput = [
+    ...getASCIIArt("name"),
+    { type: "output", content: "Welcome to my interactive terminal!" },
+    {
+      type: "output",
+      content: "Type 'help' to see what commands are available.",
+    },
+  ];
+  const [output, setOutput] = useState(initialOutput);
   const [command, setCommand] = useState("");
   const [guest, setGuest] = useState("guest");
   const [commandHistory, setCommandHistory] = useState([]);
@@ -28,6 +165,8 @@ const Terminal = () => {
   const [maximized, setMaximized] = useState(false);
   const [gameActive, setGameActive] = useState(false);
   const [gameState, setGameState] = useState(null);
+  const [isHacking, setIsHacking] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const terminalRef = useRef(null);
   const inputRef = useRef(null);
@@ -47,7 +186,6 @@ const Terminal = () => {
     "contact",
     "date",
     "time",
-    "weather",
     "echo",
     "change name",
     "ascii",
@@ -58,9 +196,12 @@ const Terminal = () => {
     "github",
     "spotify",
     "coffee",
-    "neofetch",
     "banner",
     "ls",
+    "hack",
+    "flip",
+    "git log",
+    "commits",
     "exit",
   ];
 
@@ -73,13 +214,15 @@ const Terminal = () => {
 
   // Focus input when terminal clicked
   const focusInput = () => {
-    if (inputRef.current) {
+    if (inputRef.current && !isHacking && !gameActive && !isFlipped) {
       inputRef.current.focus();
     }
   };
 
   // Handle keyboard navigation through command history
   const handleKeyDown = (e) => {
+    if (isHacking || isFlipped) return;
+
     // Up arrow key
     if (e.key === "ArrowUp" && commandHistory.length > 0) {
       e.preventDefault();
@@ -102,7 +245,7 @@ const Terminal = () => {
       );
     }
     // Tab key for autocompletion
-    else if (e.key === "Tab") {
+    else if (e.key === "Tab" && !gameActive) {
       e.preventDefault();
       handleTabCompletion();
     }
@@ -208,76 +351,12 @@ const Terminal = () => {
     }
   };
 
-  // Get ASCII art banner
-  const getASCIIArt = (type) => {
-    switch (type) {
-      case "name":
-        return [
-          {
-            type: "ascii",
-            content: [
-              "  _   _                               _____           _       ",
-              " | \\ | |                             |  __ \\         (_)      ",
-              " |  \\| | __ _ _ __ ___   __ _ _ __   | |__) |   _ ___ _  __ _ ",
-              " | . ` |/ _` | '_ ` _ \\ / _` | '_ \\  |  _  / | | / __| |/ _` |",
-              " | |\\  | (_| | | | | | | (_| | | | | | | \\ \\ |_| \\__ \\ | (_| |",
-              " |_| \\_|\\__,_|_| |_| |_|\\__,_|_| |_| |_|  \\_\\__,_|___/_|\\__,_|",
-              "                                                              ",
-            ],
-          },
-        ];
-      case "coffee":
-        return [
-          {
-            type: "ascii",
-            content: [
-              "      ( (    ",
-              "       ) )   ",
-              "    .______.  ",
-              "    |      |] ",
-              "    \\      /  ",
-              "     `----'   ",
-            ],
-          },
-        ];
-      case "computer":
-        return [
-          {
-            type: "ascii",
-            content: [
-              "     .---.         ",
-              "     |   |         ",
-              "     |   |         ",
-              "     |   |         ",
-              "     |   |.--.     ",
-              "     |   |   :     ",
-              "     |   |   |     ",
-              "     |   |   |     ",
-              "     |   |   |     ",
-              "     |   |   |     ",
-              "     |   |   |     ",
-              " ____|   |   |     ",
-              "|    |   |   |     ",
-              "|    |   |   |     ",
-              "|____|   |___|     ",
-              "     '---'         ",
-            ],
-          },
-        ];
-      default:
-        return [{ type: "error", content: "ASCII art not found" }];
-    }
-  };
-
   // Get jokes
   const getRandomJoke = () => {
     const jokes = [
       "Why don't programmers like nature? It has too many bugs.",
       "A SQL query walks into a bar, walks up to two tables and asks... 'Can I join you?'",
-      "What's a programmer's favorite hangout place? The Foo Bar.",
-      "Why do programmers always mix up Christmas and Halloween? Because Oct 31 == Dec 25.",
       "How many programmers does it take to change a light bulb? None, that's a hardware problem.",
-      "Why do programmers always confuse Halloween and Christmas? Because 31 OCT = 25 DEC.",
       "A programmer's wife tells him to go to the store and 'get a gallon of milk, and if they have eggs, get a dozen.' He returns with 13 gallons of milk.",
       "What do you call 8 hobbits? A hobbyte.",
       "What's the object-oriented way to become wealthy? Inheritance.",
@@ -310,34 +389,87 @@ const Terminal = () => {
         author: "Oscar Wilde",
       },
       {
-        text: "Programming isn't about what you know; it's about what you can figure out.",
-        author: "Chris Pine",
-      },
-      {
-        text: "The most disastrous thing that you can ever learn is your first programming language.",
-        author: "Alan Kay",
-      },
-      {
         text: "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday's code.",
         author: "Dan Salomon",
       },
+      // TV Show Quotes
       {
-        text: "That's the thing about people who think they hate computers. What they really hate is lousy programmers.",
-        author: "Larry Niven",
+        text: "It's going to be legen... wait for it... dary! Legendary!",
+        author: "Barney Stinson, HIMYM",
       },
       {
-        text: "Walking on water and developing software from a specification are easy if both are frozen.",
-        author: "Edward V. Berard",
+        text: "Whatever you do in this life, it's not legendary, unless your friends are there to see it.",
+        author: "Ted Mosby, HIMYM",
+      },
+      { text: "Winners don't make excuses.", author: "Harvey Specter, Suits" },
+      {
+        text: "Sometimes good guys gotta do bad things to make the bad guys pay.",
+        author: "Harvey Specter, Suits",
+      },
+      {
+        text: "The only way to do great work is to love what you do.",
+        author: "Steve Jobs",
+      },
+
+      { text: "Bazinga!", author: "Sheldon Cooper, The Big Bang Theory" },
+
+      {
+        text: "I am the one who knocks.",
+        author: "Walter White, Breaking Bad",
       },
     ];
     return quotes[Math.floor(Math.random() * quotes.length)];
+  };
+
+  // Run Hack Sequence
+  const runHackSequence = (initialOutput, step = 0) => {
+    const steps = [
+      "Establishing connection to target mainframe...",
+      "Bypassing firewall protocols... [Access Granted]",
+      "Injecting polymorphic code...",
+      "Decrypting secure data streams...",
+      "Analyzing vulnerability vectors...",
+      "Escalating privileges... [Root Access Achieved]",
+      "Downloading confidential files... /data/secrets.zip",
+      "Covering tracks... Deleting logs...",
+      "Exfiltrating data...",
+      "Disconnecting from server...",
+    ];
+    const duration = 500; // ms per step
+
+    if (step < steps.length) {
+      const progress = ((step + 1) / steps.length) * 100;
+      const newOutput = [
+        ...initialOutput,
+        { type: "hack_output", content: steps[step] },
+        { type: "progress", progress: progress },
+      ];
+      // Keep replacing the last two items (message + progress bar)
+      setOutput((prevOutput) => [
+        ...prevOutput.slice(0, -2), // Keep all but last two
+        { type: "hack_output", content: steps[step] },
+        { type: "progress", progress: progress },
+      ]);
+
+      setTimeout(() => runHackSequence(initialOutput, step + 1), duration);
+    } else {
+      setOutput((prevOutput) => [
+        ...prevOutput.slice(0, -2), // Remove last message and progress bar
+        { type: "success", content: "Target system compromised successfully!" },
+        {
+          type: "system",
+          content: "Operation complete. Reverting to normal terminal mode.",
+        },
+      ]);
+      setIsHacking(false);
+    }
   };
 
   // Command handler
   const handleCommand = (e) => {
     e.preventDefault();
 
-    if (!command.trim()) return;
+    if (!command.trim() || isHacking || isFlipped) return;
 
     // Add command to history
     setCommandHistory([...commandHistory, command]);
@@ -504,8 +636,14 @@ const Terminal = () => {
             { type: "output", content: "Feel free to reach out to me at:" },
             {
               type: "link",
-              content: "your.email@example.com",
-              url: "mailto:your.email@example.com",
+              content: "rusia.n@northeastern.edu",
+              url: "mailto:rusia.n@northeastern.edu",
+            },
+            {
+              type: "link",
+              content: "LinkedIn.com/in/namanrusia",
+              url: "https://linkedin.com/in/namanrusia",
+              icon: "linkedin",
             }
           );
           break;
@@ -525,16 +663,6 @@ const Terminal = () => {
             type: "output",
             content: new Date().toLocaleTimeString("en-US"),
           });
-          break;
-        case "weather":
-          newOutput.push(
-            { type: "section", content: "Current Weather:" },
-            { type: "output", content: "Boston, MA: 72°F, Partly Cloudy" },
-            {
-              type: "output",
-              content: "For real-time weather, check your local forecast.",
-            }
-          );
           break;
         case "game":
           setGameActive(true);
@@ -578,14 +706,74 @@ const Terminal = () => {
             { type: "output", content: `- ${quote.author}` }
           );
           break;
+        case "hack":
+          setIsHacking(true);
+          const initialHackOutput = [
+            ...newOutput,
+            {
+              type: "system",
+              content: "Initiating cyber intrusion sequence...",
+            },
+            { type: "progress", progress: 0 },
+          ];
+          setOutput(initialHackOutput);
+          runHackSequence(initialHackOutput);
+          setCommand("");
+          return;
+        case "flip":
+          setIsFlipped(true);
+          newOutput.push({
+            type: "system",
+            content: "Whoa! Everything's upside down!",
+          });
+          setTimeout(() => {
+            setIsFlipped(false);
+          }, 4000);
+          break;
+        case "git":
+          if (args[1] === "log") {
+            newOutput.push({
+              type: "section",
+              content: "Project Commit History:",
+            });
+            projectsData.forEach((project) => {
+              newOutput.push({
+                type: "commit",
+                hash: generateCommitHash(project.title),
+                author: guest,
+                date: project.date,
+                message: `feat: Add project - ${project.title}`,
+                description:
+                  project.description.substring(0, 80) +
+                  (project.description.length > 80 ? "..." : ""),
+              });
+            });
+          } else {
+            newOutput.push({
+              type: "error",
+              content: `Unknown git command: ${args[1]}`,
+            });
+          }
+          break;
+        case "commits":
+          newOutput.push(
+            { type: "section", content: "My Recent GitHub Activity:" },
+            {
+              type: "image",
+              url: "https://raw.githubusercontent.com/naman0r/naman0r/output/ocean.gif",
+              alt: "GitHub Contribution Heatmap",
+            }
+          );
+          break;
         case "github":
           newOutput.push(
             { type: "section", content: "GitHub Stats:" },
             { type: "output", content: "Username: naman0r" },
-            { type: "output", content: "Repositories: 15+" },
+            { type: "output", content: "Repositories: 25+" },
             {
               type: "output",
-              content: "Most used languages: JavaScript, Python, Java",
+              content:
+                "Most used languages: JavaScript, Python, Java, TypeScript",
             },
             {
               type: "link",
@@ -597,10 +785,16 @@ const Terminal = () => {
           break;
         case "spotify":
           newOutput.push(
-            { type: "section", content: "🎵 Currently Vibing To:" },
-            { type: "output", content: "Levitating - Dua Lipa" },
-            { type: "output", content: "Album: Future Nostalgia" },
-            { type: "output", content: "Playlist: Coding Focus" }
+            { type: "section", content: "🎧 Currently Vibing To:" },
+            { type: "output", content: "Instant Crush - Daft Punk" },
+            { type: "output", content: "Album: Random Access Memories" },
+            { type: "output", content: "Playlist: house?" },
+            {
+              type: "link",
+              content: "View my Spotify Songs!",
+              url: "https://open.spotify.com/user/h8pkjswq0k221qlr7oxqphw5i",
+              icon: "spotify",
+            }
           );
           break;
         case "coffee":
@@ -613,21 +807,8 @@ const Terminal = () => {
             },
             {
               type: "output",
-              content: "Favorite brew: Ethiopian pour-over, black.",
+              content: "Favorite brew: black. just black. yea",
             }
-          );
-          break;
-        case "neofetch":
-          newOutput.push(
-            { type: "section", content: "System Information:" },
-            ...getASCIIArt("computer"),
-            { type: "output", content: "OS: macOS Sonoma" },
-            { type: "output", content: "Host: Naman's MacBook Pro" },
-            { type: "output", content: "Kernel: Darwin" },
-            { type: "output", content: "Shell: zsh" },
-            { type: "output", content: "Editor: VS Code" },
-            { type: "output", content: "Terminal: iTerm2" },
-            { type: "output", content: "Uptime: Always coding" }
           );
           break;
         case "banner":
@@ -688,7 +869,6 @@ const Terminal = () => {
                 },
                 { command: "date", description: "Display the current date" },
                 { command: "time", description: "Display the current time" },
-                { command: "weather", description: "Check the weather" },
                 { command: "echo [message]", description: "Display a message" },
                 {
                   command: "change name [name]",
@@ -707,9 +887,21 @@ const Terminal = () => {
                   description: "See what I'm listening to",
                 },
                 { command: "coffee", description: "Take a coffee break" },
-                { command: "neofetch", description: "Display system info" },
                 { command: "banner", description: "Show welcome banner" },
                 { command: "ls", description: "List directory contents" },
+                { command: "hack", description: "Run a fake hacking sequence" },
+                {
+                  command: "flip",
+                  description: "Flip the terminal upside down",
+                },
+                {
+                  command: "git log",
+                  description: "Show project commit history",
+                },
+                {
+                  command: "commits",
+                  description: "Show GitHub activity heatmap",
+                },
                 { command: "clear", description: "Clear the terminal" },
                 { command: "exit", description: "Close the terminal" },
               ],
@@ -775,7 +967,7 @@ const Terminal = () => {
         return (
           <div key={index} className="flex mb-2">
             <span className="text-green-400 font-bold mr-2">
-              {guest}@portfolio:~$
+              {guest}@terminal:~$
             </span>
             <span className="text-gray-100">{item.content}</span>
           </div>
@@ -809,6 +1001,7 @@ const Terminal = () => {
             >
               {item.icon === "github" && <FaGithub className="mr-2" />}
               {item.icon === "linkedin" && <FaLinkedin className="mr-2" />}
+              {item.icon === "spotify" && <FaSpotify className="mr-2" />}
               {item.content}
             </a>
           </div>
@@ -851,6 +1044,51 @@ const Terminal = () => {
             ))}
           </div>
         );
+      case "progress":
+        return (
+          <div
+            key={index}
+            className="w-full bg-gray-700 rounded-full h-2.5 my-2 ml-4"
+          >
+            <div
+              className="bg-green-500 h-2.5 rounded-full transition-width duration-300 ease-linear"
+              style={{ width: `${item.progress}%` }}
+            ></div>
+          </div>
+        );
+      case "hack_output":
+        return (
+          <div
+            key={index}
+            className="text-green-400 ml-4 mb-1 font-mono text-sm"
+          >
+            {item.content}
+          </div>
+        );
+      case "commit":
+        return (
+          <div key={index} className="mb-4 ml-4">
+            <div className="text-yellow-400">
+              commit <span className="text-red-400">{item.hash}</span> (HEAD{" "}
+              {"->"}
+              main)
+            </div>
+            <div className="text-gray-400">{`Author: Naman Rusia <${item.author}@portfolio.com>`}</div>
+            <div className="text-gray-400">Date: {item.date}</div>
+            <div className="mt-2 text-gray-100">{item.message}</div>
+            <div className="mt-1 text-gray-300 italic">{item.description}</div>
+          </div>
+        );
+      case "image":
+        return (
+          <div key={index} className="ml-4 my-2">
+            <img
+              src={item.url}
+              alt={item.alt || "Terminal Image"}
+              className="max-w-full rounded"
+            />
+          </div>
+        );
       default:
         return (
           <div key={index} className="text-gray-100 ml-4 mb-1">
@@ -877,14 +1115,14 @@ const Terminal = () => {
       id="terminal"
       className={`bg-gray-900 rounded-lg shadow-2xl w-[85%] max-w-3xl mx-auto my-8 flex flex-col overflow-hidden border border-gray-700 transition-all duration-300 ${
         maximized ? "fixed inset-4 w-auto max-w-none h-auto z-50" : "h-[500px]"
-      }`}
+      } ${isFlipped ? "transform rotate-180" : ""}`}
       ref={terminalRef}
       onClick={focusInput}
     >
       <div className="flex justify-between items-center px-4 py-2 bg-gray-800 border-b border-gray-700 select-none">
         <div className="flex items-center text-gray-100 text-sm">
           <FaTerminal className="mr-3 text-green-400" />
-          <span>{guest}@portfolio: ~</span>
+          <span>{guest}@terminal: ~</span>
         </div>
         <div className="flex gap-2">
           <button
@@ -932,7 +1170,7 @@ const Terminal = () => {
         className="flex items-center px-4 py-3 bg-gray-900 border-t border-gray-700"
       >
         <span className="text-green-400 font-bold mr-2 whitespace-nowrap">
-          {guest}@portfolio:~$
+          {guest}@terminal:~$
         </span>
         <input
           type="text"
@@ -941,6 +1179,7 @@ const Terminal = () => {
           onChange={(e) => setCommand(e.target.value)}
           onKeyDown={handleKeyDown}
           ref={inputRef}
+          disabled={isHacking || gameActive || isFlipped}
           autoFocus
         />
       </form>
