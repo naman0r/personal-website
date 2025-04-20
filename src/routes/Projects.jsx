@@ -65,7 +65,7 @@ const Projects = () => {
         "JSON Web Tokens",
       ],
       github: "https://github.com/naman0r/mindfulmomentum",
-      demo: "https://mindfulmomentum-frontend.vercel.app/",
+      demo: "https://mindfulmomentum.vercel.app/",
       date: "March 2025, Current, Deployed (Beta)",
       color: "#4caf50",
     },
@@ -103,6 +103,17 @@ const Projects = () => {
       demo: "https://www.youtube.com/watch?v=SWPsYICRIOQ",
       date: "Jan-March 2025, Completed",
       color: "#ff9800",
+    },
+    {
+      title: "StudyBuddy",
+      description:
+        "A full stack app that connects university students with each other to form study groups.",
+      image: "../../studybuddy.png",
+      categories: ["Streamlit", "MySQL", "Docker", "Flask"],
+      github: "https://github.com/Arshayp/studybuddy-2",
+      demo: "",
+      date: "Spring 2025",
+      color: "#4caf50",
     },
     {
       title: "BackBuddy App",
