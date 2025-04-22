@@ -218,7 +218,7 @@ const Projects = () => {
         className="projects-header"
         onMouseMove={handleMouseMove}
         style={{
-          background: `radial-gradient(circle 2000px at ${gradient.x}% ${gradient.y}%, rgb(255, 197, 126), rgb(117, 255, 152), rgb(96, 89, 157))`,
+          background: `radial-gradient(circle 2000px at ${gradient.x}% ${gradient.y}%, rgb(255, 197, 126), rgb(50, 50, 100), rgb(28, 28, 28))`,
           transition: "background 0.1s linear",
         }}
       >
