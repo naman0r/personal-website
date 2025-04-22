@@ -41,6 +41,13 @@ const App = () => {
       </div>
 
       <div>
+        {" "}
+        <p className="flex justify-center items-center text-amber-800 font-extralight fade-in-text">
+          Type in and mess around with the terminal! type 'help' to see
+          available commands, and minimize or maximize it too
+        </p>
+      </div>
+      <div>
         <TopNav fadeIn={false} />
       </div>
 
