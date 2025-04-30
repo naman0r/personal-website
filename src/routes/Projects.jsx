@@ -32,11 +32,11 @@ const Projects = () => {
   };
 
   const projects = [
-    /*     {
-      title: "HackVerseAI",
+    {
+      title: "EduGenie - AI-powered Student Productivity Platform",
       description:
-        "Coming soon 👀. Hands down the best AI Project creation platform, geared towards students to help them mindfully and purposefully create Projects through guidance in the world of Cursor, Copilot, etc. where learning is not incentivized. Visit the Demo link for the latest news and updates!",
-      image: "../../hackverse.png",
+        "Creating a platform where students can log and track their projects, homeworks and assignments, with google calendar integration, AI-generated videos, mindmap creation, and note taking. Notion but better for student productivity. AI-generated videos implemented, google calendar integration implemented.",
+      image: "../../edugenie.png",
       categories: [
         "NextJs",
         "TypeScript",
@@ -45,12 +45,13 @@ const Projects = () => {
         "Tailwind",
         "Supabase",
         "Flask/FastAPI",
+        "Google Cloud",
       ],
-      github: "https://github.com/naman0r/HackVerseAI",
-      demo: "https://hackverseai.vercel.app",
+      github: "https://github.com/naman0r/EduGenie",
+      demo: "",
       date: "March 2025, Current, My Latest Project!",
       color: "#ff9800",
-    }, */
+    },
     {
       title: "MindfulMomentum",
       description:
