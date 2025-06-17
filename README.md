@@ -1,12 +1,13 @@
 # Welcome to my Personal Website documentation
 
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/3c7436c6-7bb6-484d-bf59-5b340e47aa25/deploy-status)](https://app.netlify.com/projects/namanrusia/deploys)
 
 - I used vite to start this React app project.
 - Languages, Technologies and Frameworks used: HTML, CSS, Tailwind, GSAP, React, Animate.css,
 - react-router-dom for implementation of routing logic so I can have a robust personal website and not just a single page one.
 - hosted and can be viewed on namanrusia.netlify.app ; domain name to be bought soon.
+
+- what is happening
 
 # Current issues and TO-DOs
 
@@ -41,5 +42,5 @@ Lightest Slate #ccd6f6
 White #e6f1ff
 Green #64ffda
 
-- fix download and view resume pdf features on netlify. 
-- 
+- fix download and view resume pdf features on netlify.
+-
