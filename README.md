@@ -1,5 +1,8 @@
 # Welcome to my Personal Website documentation
 
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3c7436c6-7bb6-484d-bf59-5b340e47aa25/deploy-status)](https://app.netlify.com/projects/namanrusia/deploys)
+
 - I used vite to start this React app project.
 - Languages, Technologies and Frameworks used: HTML, CSS, Tailwind, GSAP, React, Animate.css,
 - react-router-dom for implementation of routing logic so I can have a robust personal website and not just a single page one.
