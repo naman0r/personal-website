@@ -33,7 +33,7 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "EduGenie - AI-powered Student Productivity Platform",
+      title: "Axiom AI - AI-powered Student Productivity Platform",
       description:
         "Creating a platform where students can log and track their projects, homeworks and assignments, with google calendar integration, AI-generated videos, mindmap creation, and note taking. Notion but better for student productivity. AI-generated videos implemented, google calendar integration implemented.",
       image: "../../edugenie.png",
@@ -47,8 +47,8 @@ const Projects = () => {
         "Flask/FastAPI",
         "Google Cloud",
       ],
-      github: "https://github.com/naman0r/EduGenie",
-      demo: "",
+      github: "https://github.com/naman0r/axiomai",
+      demo: "https://www.axiomai.space",
       date: "March 2025, Current, My Latest Project!",
       color: "#ff9800",
     },
@@ -219,7 +219,7 @@ const Projects = () => {
         className="projects-header"
         onMouseMove={handleMouseMove}
         style={{
-          background: `radial-gradient(circle 2000px at ${gradient.x}% ${gradient.y}%, rgb(255, 197, 126), rgb(50, 50, 100), rgb(28, 28, 28))`,
+          background: `radial-gradient(circle 2000px at ${gradient.x}% ${gradient.y}%, #ffecd2, #fcb69f, #a1c4fd, #2d2d44)`,
           transition: "background 0.1s linear",
         }}
       >

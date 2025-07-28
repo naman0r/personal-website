@@ -38,7 +38,7 @@ const Resume = () => {
 
   const experience = [
     {
-      company: "HackVerseAI",
+      company: "Axiom AI",
       position: "Founder & Lead Developer",
       location: "Remote",
       date: "March 2025 - Present",
