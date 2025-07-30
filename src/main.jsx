@@ -7,6 +7,7 @@ import Projects from "./routes/Projects.jsx";
 import PlayPage from "./routes/PlayPage.jsx";
 import Resume from "./routes/Resume.jsx";
 import Error404 from "./routes/Error404.jsx";
+import Hidden from "./routes/hidden.jsx";
 
 // app entry point.
 
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
   { path: "/playpage", element: <PlayPage /> },
   { path: "/resume", element: <Resume /> },
   { path: "/*", element: <Error404 /> },
+  { path: "/me/me", element: <Hidden /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
