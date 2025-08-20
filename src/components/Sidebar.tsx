@@ -43,7 +43,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   initialExpanded = true,
   user = {
     name: "Naman Rusia",
-    title: "Software Engineer",
+    title: "Student",
     avatarUrl: "/profile_pic.jpeg",
   },
 }) => {
@@ -81,12 +81,13 @@ const Sidebar: React.FC<SidebarProps> = ({
       { icon: AiOutlineHome, label: "Home", href: "/" },
       { icon: HiOutlineBriefcase, label: "Experience", href: "/experience" },
       { icon: RiRocketLine, label: "Projects", href: "/projects" },
-      { icon: HiOutlinePencilAlt, label: "Blogs", href: "/blogs" },
-      { icon: AiOutlineUser, label: "About", href: "/about" },
-      { icon: AiOutlineMail, label: "Contact", href: "/contact" },
-      { icon: HiOutlineWrench, label: "Tools", href: "/tools" },
+      //{ icon: HiOutlinePencilAlt, label: "Thoughts", href: "/blogs" },
+      //{ icon: AiOutlineUser, label: "About", href: "/about" },
+      //{ icon: AiOutlineMail, label: "Contact", href: "/contact" },
+      //{ icon: HiOutlineWrench, label: "Tools", href: "/tools" },
       { icon: IoTerminal, label: "Terminal", href: "/terminal" },
       { icon: FaComputer, label: "?", href: "/playground" },
+      { icon: HiOutlinePencilAlt, label: "Thoughts", href: "/blogs" },
     ],
     []
   );
@@ -318,7 +319,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                       <h3 className="text-sm font-semibold text-white leading-5">
                         {user.name}
                       </h3>
-                      <p className="text-xs text-gray-400">{user.title}</p>
+                      <p className="text-xs text-gray-400">Student | SWE</p>
                     </div>
                     {!isMobile && (
                       <button
@@ -345,7 +346,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               >
                 <Link
                   href="/contact"
-                  className="rounded-xl bg-gradient-to-br from-indigo-500 to-sky-500 px-3 py-2 text-center text-xs font-semibold text-white shadow-sm shadow-black/20 outline-none ring-offset-0 transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-indigo-400/70"
+                  className="rounded-xl bg-gradient-to-br from-indigo-100 to-sky-500 px-3 py-2 text-center text-xs font-semibold text-black shadow-sm shadow-black/20 outline-solid ring-offset-0 transition hover:opacity-25 focus-visible:ring-2 focus-visible:ring-indigo-400/70"
                 >
                   Contact
                 </Link>

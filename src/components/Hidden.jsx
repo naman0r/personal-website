@@ -28,8 +28,8 @@ const Hidden = () => {
   const readmenotes = [
     { date: "2025-07-30", note: "this is a readme file" },
     {
-      date: "2025-01-01",
-      note: "Start of a brand new year. I hope to live up to my dreams, and make the most of the wonderful opportunities I have been given",
+      date: "2025-08-20",
+      note: "New and migrated website! I started dev work",
     },
   ];
 
