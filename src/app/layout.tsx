@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "./LayoutWrapper";
+import { MusicProvider } from "@/contexts/MusicContext";
+import MusicConsentPopup from "@/components/MusicConsentPopup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +31,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <LayoutWrapper>{children}</LayoutWrapper>
+        <MusicProvider>
+          <LayoutWrapper>{children}</LayoutWrapper>
+          <MusicConsentPopup />
+        </MusicProvider>
       </body>
     </html>
   );
