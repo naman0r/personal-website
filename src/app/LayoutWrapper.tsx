@@ -21,8 +21,14 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   };
 
   // Check if we're on the homepage
-  const isHomePage = pathname === "/";
-  //const isHomePage = false;
+  /* const isHomePage =
+    pathname === "/" ||
+    pathname === "/experience" ||
+    pathname === "/terminal" ||
+    pathname === "/playground"; */
+  //const isHomePage = true;
+
+  const isHomePage = !(pathname === "/projects");
 
   if (isHomePage) {
     return (

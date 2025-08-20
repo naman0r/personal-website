@@ -9,29 +9,130 @@ export default function Home() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const y = useTransform(scrollY, [0, 300], [0, -50]);
 
+  // Background animation transforms based on scroll
+  const bgOpacity = useTransform(scrollY, [0, 800], [0.15, 0.05]);
+  const bgScale = useTransform(scrollY, [0, 1000], [1, 1.2]);
+  const bgRotate = useTransform(scrollY, [0, 1000], [0, 360]);
+
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
       {/* Dynamic Ambient Background */}
-      <div className="fixed inset-0 -z-10">
-        {/* Large animated gradient orbs */}
-
-        {/* Subtle mesh pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.015]"
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        {/* Primary gradient orb - Orange/Red */}
+        <motion.div
+          initial={{ x: "-50%", y: "100%" }}
+          animate={{
+            x: ["-50%", "-30%", "-60%", "-40%", "-50%"],
+            y: ["100%", "20%", "-10%", "30%", "100%"],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
           style={{
-            backgroundImage: `
-               linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-               linear-gradient(90deg, rgb(236, 19, 19) 10px, transparent 1px)
-             `,
-            backgroundSize: "100px 1000px",
+            opacity: bgOpacity,
+            scale: bgScale,
+            background:
+              "radial-gradient(circle, rgba(255,69,0,0.8) 0%, rgba(255,140,0,0.6) 30%, rgba(255,165,0,0.4) 50%, transparent 70%)",
+          }}
+          className="absolute w-[800px] h-[800px] rounded-full"
+        />
+
+        {/* Secondary gradient orb - Blue/Purple */}
+        <motion.div
+          initial={{ x: "150%", y: "-50%" }}
+          animate={{
+            x: ["150%", "70%", "90%", "60%", "150%"],
+            y: ["-50%", "10%", "60%", "40%", "-50%"],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{
+            opacity: useTransform(scrollY, [0, 800], [0.12, 0.04]),
+            scale: bgScale,
+            rotate: bgRotate,
+            background:
+              "radial-gradient(circle, rgba(0,100,255,0.8) 0%, rgba(100,50,255,0.6) 30%, rgba(150,100,255,0.4) 50%, transparent 70%)",
+          }}
+          className="absolute w-[900px] h-[900px] rounded-full"
+        />
+
+        {/* Tertiary gradient orb - Purple/Pink */}
+        <motion.div
+          initial={{ x: "50%", y: "150%" }}
+          animate={{
+            x: ["50%", "80%", "20%", "70%", "50%"],
+            y: ["150%", "70%", "80%", "90%", "150%"],
+          }}
+          transition={{
+            duration: 35,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{
+            opacity: useTransform(scrollY, [0, 800], [0.1, 0.03]),
+            scale: useTransform(scrollY, [0, 1000], [1, 0.8]),
+            background:
+              "radial-gradient(circle, rgba(255,0,150,0.7) 0%, rgba(200,50,255,0.5) 30%, rgba(150,100,255,0.3) 50%, transparent 70%)",
+          }}
+          className="absolute w-[700px] h-[700px] rounded-full"
+        />
+
+        {/* Small floating accent orbs */}
+        <motion.div
+          animate={{
+            x: ["-10%", "110%"],
+            y: ["20%", "80%"],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "linear",
+          }}
+          className="absolute w-[200px] h-[200px] rounded-full opacity-[0.08]"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,200,100,0.9) 0%, transparent 60%)",
           }}
         />
 
-        {/* Enhanced noise texture */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
+        <motion.div
+          animate={{
+            x: ["110%", "-10%"],
+            y: ["70%", "10%"],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "linear",
+          }}
+          className="absolute w-[150px] h-[150px] rounded-full opacity-[0.06]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            background:
+              "radial-gradient(circle, rgba(100,200,255,0.9) 0%, transparent 60%)",
+          }}
+        />
+
+        {/* Ambient overlay for depth */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(255,100,50,0.1) 0%, rgba(100,50,255,0.1) 50%, transparent 100%)",
+          }}
+        />
+
+        {/* Subtle noise texture for depth */}
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.3'/%3E%3C/svg%3E")`,
           }}
         />
       </div>
@@ -131,21 +232,26 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h3 className="text-xl font-light text-white mb-4">Journey</h3>
+                <h3 className="text-xl font-light text-white mb-4">
+                  Background
+                </h3>
                 <p className="text-gray-400 leading-relaxed">
-                  {/* Started with curiosity about how things work on the internet.
-                  That curiosity evolved into a passion for building digital
-                  experiences that matter. From tinkering with HTML in high
-                  school to architecting full-scale applications today. */}
-                  I haven't been coding since I was six. I picked up a few CS
-                  classes in high school, but my 'eureka' moment came during my
-                  first semester of college, where I had a project idea that I
-                  got obsessed with. Ever since, coding is my creative outlet. I
-                  love building cool and impactful software. Take a look at my{" "}
-                  <Link href="/projects" className="underline">
-                    projects
-                  </Link>{" "}
-                  to learn more about the problems I've endevoured to solve.
+                  I grew up in 3 separate countries. I was born in the{" "}
+                  <span className="hover:text-red-300">US</span>, but lived in{" "}
+                  <span className="hover:text-green-300">India</span> and{" "}
+                  <span className="hover:text-red-600">Singapore</span> for most
+                  of my childhood. Having such a diverse upbringing is something
+                  that I am immensemly grateful for. During High School in
+                  Singapore, I was obsessed with entrepreneurship and building.
+                  I co-founde my High School's Entrepreneurship Club, and lead
+                  us to winning the JA Company of The Year competition during my
+                  Junior year. This experience was pivotal for me, and got me
+                  interested in the technical side of building. I highlight this
+                  experience because it was the first time I was able to build
+                  something that I was proud of, and it lead me to wanting to
+                  major in Computer Science and Business Administration: mixing
+                  my passion for entrepreneurship and impact with my interest in
+                  the Technical Aspect.
                 </p>
               </div>
 
@@ -164,9 +270,33 @@ export default function Home() {
                     Andrej Karpathy's playlist.
                   </Link>{" "}
                   I'm also building a side project called{" "}
-                  <Link href="/projects/tandemcode">TandemCode</Link> to explore
-                  how I can build a social platform which further incentivizes
-                  with peer-aided tech interview prep.
+                  <Link
+                    href="https://github.com/naman0r/tandemcode"
+                    className="underline hover:text-sky-300"
+                  >
+                    TandemCode
+                  </Link>{" "}
+                  to explore how I can build a social platform which further
+                  incentivizes with peer-aided tech interview prep. Click{" "}
+                  <Link
+                    href="/projects/tandemcode"
+                    className="underline hover:text-lime-400"
+                  >
+                    here
+                  </Link>{" "}
+                  to learn more about the project!
+                  <br />
+                  <br />I also have completed internships at Startups to explore
+                  my passion in the intersection of Tech and Entrepreneurship. I
+                  recently interned at{" "}
+                  <Link
+                    href="https://www.venu3d.com/"
+                    className="underline hover:text-lime-400"
+                  >
+                    Venu AI
+                  </Link>
+                  , a Y-Combinator backed startup, where I got a lot of agency
+                  to build out end-to-end core features!
                 </p>
               </div>
             </div>
@@ -178,25 +308,77 @@ export default function Home() {
                   time at Northeastern University, I have been involved with{" "}
                   <Link
                     href="https://www.forgenu.com/home"
-                    className="underline"
+                    className="underline hover:text-orange-500"
                   >
                     Forge
                   </Link>
                   , a product development studio, where I worked on 2 projects
                   over the course of 2 semesters that involved mobile app
-                  development using React Native.
+                  development using React Native. I am also a part of{" "}
+                  <Link href="" className="underline hover:text-blue-500">
+                    TAMID at Northeastern
+                  </Link>
+                  , a multi-facited organization where I met some of the best
+                  people and also made some cool technical projects as a part of
+                  their{" "}
+                  <span className="hover:text-blue-400">Tech Consulting</span>{" "}
+                  track. This semester, I am also going to be involved with{" "}
+                  <Link
+                    href="https://www.c4cneu.com/"
+                    className="underline hover:text-indigo-600"
+                  >
+                    Code4Community
+                  </Link>
+                  , a pro-bono software consultancy. I was also involved in{" "}
+                  <Link
+                    href="https://oasisneu.com/"
+                    className="underline hover:text-yellow-100"
+                  >
+                    Oasis
+                  </Link>{" "}
+                  where my friends and I built{" "}
+                  <Link
+                    href="https://nutrition-oasis.vercel.app"
+                    className="underline hover:text-yellow-200"
+                  >
+                    NUtrition
+                  </Link>
+                  , a dining hall macroneutrient tracker for Northeastern
+                  University students.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-xl font-light text-white mb-4">Focus</h3>
-                <p className="text-gray-400 leading-relaxed"></p>
+                <h3 className="text-xl font-light text-white mb-4">Journey</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  I haven't been coding since I was six. I picked up a few CS
+                  classes in high school, but my 'eureka' moment came during my
+                  first semester of college, where I had a project idea that I
+                  got obsessed with. Ever since, coding is my creative outlet. I
+                  love building cool and impactful software. Take a look at my{" "}
+                  <Link href="/projects" className="underline">
+                    projects
+                  </Link>{" "}
+                  to learn more about the problems I've endevoured to solve.
+                  <br />
+                  <br />
+                  Apart from coding, I love hanging out with my friends, going
+                  to the gym, and travelling (16 countries and counting!). I
+                  have also come to love to cook (havent burned down anything
+                  yet). I am also hugely adicted to Clash Royale (message me to
+                  play if you think you can beat me). I have also been getting
+                  into watching F1 recently.
+                </p>
               </div>
             </div>
 
             <div className="mt-16 pt-16 border-t border-gray-900">
               <p className="text-gray-500 text-sm">
-                Available for select projects and collaborations.
+                Would always love to chat! Reach out to me through LinkedIn or
+                Email: rusia.n[at]northeastern[dot]edu . Please also check out
+                the rest of the pages of my personal website! Although this one
+                was text-heavy, the other pages are a lot more engaging and
+                grounded in immersion and interactivity.
               </p>
             </div>
           </motion.div>
@@ -206,26 +388,26 @@ export default function Home() {
       {/* Footer */}
       <footer className="relative py-12 px-6 border-t border-gray-900">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <p className="text-gray-600 text-sm">© 2024</p>
+          <p className="text-gray-600 text-sm">Made with ❤️ by Naman</p>
           <div className="flex space-x-6">
-            <a
-              href="#"
-              className="text-gray-600 hover:text-gray-400 transition-colors text-sm"
+            <Link
+              href="https://github.com/naman0r"
+              className="text-gray-600 hover:text-lime-400 transition-colors text-sm hover:underline"
             >
               GitHub
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-gray-400 transition-colors text-sm"
+            </Link>
+            <Link
+              href="https://linkedin.com/in/namanrusia/"
+              className="text-gray-600 hover:text-rose-400 transition-colors text-sm hover:underline"
             >
               LinkedIn
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-gray-400 transition-colors text-sm"
+            </Link>
+            <Link
+              href="mailto:rusia.n@northreastern.edu"
+              className="text-gray-600 hover:text-sky-400 transition-colors text-sm hover:underline"
             >
               Email
-            </a>
+            </Link>
           </div>
         </div>
       </footer>

@@ -171,7 +171,7 @@ export default function Projects() {
       : projects.filter((project) => project.tech.includes(selectedCategory));
 
   return (
-    <>
+    <div>
       {/* Clean Header */}
       <div className="mb-12">
         <h1 className="text-4xl font-bold text-white mb-4">Projects</h1>
@@ -275,6 +275,6 @@ export default function Projects() {
           View GitHub Profile
         </a>
       </div>
-    </>
+    </div>
   );
 }

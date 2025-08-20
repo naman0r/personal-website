@@ -1,132 +1,205 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+
 export default function Experience() {
   const experiences = [
     {
-      title: "Senior Software Engineer",
-      company: "Tech Company",
-      period: "2023 - Present",
-      description:
-        "Led development of full-stack applications using modern web technologies",
-      achievements: [
-        "Improved application performance by 40%",
-        "Mentored junior developers",
-        "Implemented CI/CD pipelines",
+      company: "Auribus Labs",
+      title: "Software Engineer Intern",
+      period: "April — Aug 2025",
+      location: "Boston, MA",
+      link: "https://www.auribuslabs.com/",
+      description: "",
+      technologies: [
+        "Swift",
+        "SwiftUI",
+        "iOS Development",
+        "GCP",
+        "Hasura",
+        "GraphQL",
       ],
     },
     {
-      title: "Full Stack Developer",
-      company: "Startup Inc",
-      period: "2021 - 2023",
-      description:
-        "Developed and maintained web applications from concept to deployment",
-      achievements: [
-        "Built responsive web applications",
-        "Integrated third-party APIs",
-        "Collaborated with design team",
-      ],
+      company: "Code4Community at Northeastern (Student Organization)",
+      title: "SWE",
+      period: "Present",
+      link: "https://www.c4cneu.com/",
+      location: "Boston, MA",
+      description: "",
+      technologies: [],
+    },
+
+    {
+      company: "Venu AI (YC W21)",
+      title: "TPM and SWE Intern",
+      period: "April — July 2024",
+      link: "https://www.venu3d.com/",
+      location: "Remote",
+      description: "",
+      technologies: ["React", "Python", "Django", "Azure", "Celery", "Redis"],
     },
     {
-      title: "Junior Developer",
-      company: "Dev Agency",
-      period: "2020 - 2021",
+      company: "Forge",
+      title: "Product Developer",
+      link: "https://www.forgenu.com/",
+      period: "Sep 2024 — May 2025",
+      location: "Boston, MA",
       description:
-        "Started my professional journey learning industry best practices",
-      achievements: [
-        "Learned modern development practices",
-        "Contributed to multiple client projects",
-        "Gained experience in agile methodologies",
-      ],
+        "Built mobile applications for real-world client projects and startups.",
+      technologies: ["React Native", "Expo", "TypeScript", "MongoDB"],
+    },
+    {
+      company: "TAMID at Northeastern",
+      title: "Software Developer",
+      link: "https://www.nutamidtech.org/about",
+      period: "Jan 2025 — Present",
+      location: "Boston, MA",
+      description: "",
+      technologies: ["React", "Python", "Flask", "Docker", "PostgreSQL"],
     },
   ];
 
+  const education = {
+    school: "Northeastern University",
+    degree: "BS Computer Science & Business Administration",
+    period: "December 2027",
+    location: "Boston, MA",
+    gpa: "3.89 GPA | Dean's List",
+  };
+
   return (
-    <>
-      <h1 className="text-4xl font-bold text-white mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
-        Professional Experience
-      </h1>
-      <p className="text-lg text-gray-300 mb-12 max-w-2xl">
-        My professional journey in software development, highlighting key roles
-        and achievements.
-      </p>
+    <div className="min-h-screen bg-black text-white py-12 px-6">
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-16"
+        >
+          <h1 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
+            Experience
+          </h1>
+          <p className="text-xl text-gray-400 font-light max-w-2xl">
+            My experience so far through Internships and Club projects at
+            Northeastern
+          </p>
+        </motion.div>
 
-      <div className="space-y-8">
-        {experiences.map((exp, index) => (
-          <div key={index} className="relative">
-            {/* Timeline line */}
-            {index !== experiences.length - 1 && (
-              <div className="absolute left-6 top-16 w-0.5 h-32 bg-gradient-to-b from-blue-500 to-purple-600 opacity-30"></div>
-            )}
+        {/* Experience Section */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-20"
+        >
+          <h2 className="text-sm uppercase tracking-[0.2em] text-gray-600 mb-12">
+            Professional Experience
+          </h2>
 
-            <div className="flex gap-6">
-              {/* Timeline dot */}
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
-                <div className="w-4 h-4 rounded-full bg-white"></div>
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-1">
-                      {exp.title}
+          <div className="space-y-16">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div className="grid md:grid-cols-3 gap-6">
+                  {/* Left: Company & Period */}
+                  <div className="md:col-span-1">
+                    <h3 className="text-lg font-medium text-white mb-1">
+                      {exp.company}
                     </h3>
-                    <p className="text-blue-400 font-medium">{exp.company}</p>
+                    <p className="text-sm text-gray-500 mb-1">{exp.period}</p>
+                    <p className="text-sm text-gray-600">{exp.location}</p>
                   </div>
-                  <span className="text-gray-400 text-sm mt-2 md:mt-0">
-                    {exp.period}
-                  </span>
+
+                  {/* Right: Title & Description */}
+                  <div className="md:col-span-2">
+                    <h4 className="text-xl font-light text-gray-200 mb-3">
+                      {exp.title}
+                    </h4>
+                    <p className="text-gray-400 leading-relaxed mb-4">
+                      {exp.description}
+                    </p>
+
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 text-xs bg-gray-900 text-gray-300 rounded-full border border-gray-800"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
-                <p className="text-gray-400 mb-4">{exp.description}</p>
-
-                <div>
-                  <h4 className="text-white font-medium mb-3">
-                    Key Achievements:
-                  </h4>
-                  <ul className="space-y-2">
-                    {exp.achievements.map((achievement, idx) => (
-                      <li key={idx} className="flex items-center gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                        <span className="text-gray-300">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
-          <h2 className="text-2xl font-bold text-white mb-4">Education</h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold text-white">
-                Computer Science Degree
-              </h3>
-              <p className="text-blue-400">University Name</p>
-              <p className="text-gray-400 text-sm">2016 - 2020</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
-          <h2 className="text-2xl font-bold text-white mb-4">Certifications</h2>
-          <div className="space-y-3">
-            {[
-              "AWS Certified Developer",
-              "React Professional",
-              "Node.js Certification",
-            ].map((cert) => (
-              <div key={cert} className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                <span className="text-gray-300">{cert}</span>
-              </div>
+                {/* Subtle divider */}
+                {index < experiences.length - 1 && (
+                  <div className="mt-16 w-full h-px bg-gray-900" />
+                )}
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.section>
+
+        {/* Education Section */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <h2 className="text-sm uppercase tracking-[0.2em] text-gray-600 mb-12">
+            Education
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="md:col-span-1">
+              <h3 className="text-lg font-medium text-white mb-1">
+                {education.school}
+              </h3>
+              <p className="text-sm text-gray-500 mb-1">{education.period}</p>
+              <p className="text-sm text-gray-600">{education.location}</p>
+            </div>
+
+            <div className="md:col-span-2">
+              <h4 className="text-xl font-light text-gray-200 mb-2">
+                {education.degree}
+              </h4>
+              <p className="text-gray-400">{education.gpa}</p>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Footer CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="pt-16 border-t border-gray-900"
+        >
+          <p className="text-gray-500 text-sm mb-4">
+            Interested in working together?
+          </p>
+          <Link
+            href="/contact"
+            className="text-white hover:text-gray-300 transition-colors underline"
+          >
+            Let's connect
+          </Link>
+        </motion.div>
       </div>
-    </>
+    </div>
   );
 }
