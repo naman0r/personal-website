@@ -9,13 +9,8 @@ export default function Home() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const y = useTransform(scrollY, [0, 300], [0, -50]);
 
-  // Background animation transforms based on scroll
-  const bgOpacity = useTransform(scrollY, [0, 800], [0.15, 0.05]);
-  const bgScale = useTransform(scrollY, [0, 1000], [1, 1.2]);
-  const bgRotate = useTransform(scrollY, [0, 1000], [0, 360]);
-
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
+    <div className="min-h-screen bg-black/50  text-white overflow-hidden">
       {/* Dynamic Ambient Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         {/* Primary gradient orb - Orange/Red */}
@@ -30,13 +25,11 @@ export default function Home() {
             repeat: Infinity,
             ease: "linear",
           }}
+          className="absolute w-[800px] h-[800px] rounded-full opacity-30"
           style={{
-            opacity: bgOpacity,
-            scale: bgScale,
             background:
               "radial-gradient(circle, rgba(255,69,0,0.8) 0%, rgba(255,140,0,0.6) 30%, rgba(255,165,0,0.4) 50%, transparent 70%)",
           }}
-          className="absolute w-[800px] h-[800px] rounded-full"
         />
 
         {/* Secondary gradient orb - Blue/Purple */}
@@ -51,14 +44,11 @@ export default function Home() {
             repeat: Infinity,
             ease: "linear",
           }}
+          className="absolute w-[900px] h-[900px] rounded-full opacity-25"
           style={{
-            opacity: useTransform(scrollY, [0, 800], [0.12, 0.04]),
-            scale: bgScale,
-            rotate: bgRotate,
             background:
               "radial-gradient(circle, rgba(0,100,255,0.8) 0%, rgba(100,50,255,0.6) 30%, rgba(150,100,255,0.4) 50%, transparent 70%)",
           }}
-          className="absolute w-[900px] h-[900px] rounded-full"
         />
 
         {/* Tertiary gradient orb - Purple/Pink */}
@@ -73,13 +63,11 @@ export default function Home() {
             repeat: Infinity,
             ease: "linear",
           }}
+          className="absolute w-[700px] h-[700px] rounded-full opacity-20"
           style={{
-            opacity: useTransform(scrollY, [0, 800], [0.1, 0.03]),
-            scale: useTransform(scrollY, [0, 1000], [1, 0.8]),
             background:
               "radial-gradient(circle, rgba(255,0,150,0.7) 0%, rgba(200,50,255,0.5) 30%, rgba(150,100,255,0.3) 50%, transparent 70%)",
           }}
-          className="absolute w-[700px] h-[700px] rounded-full"
         />
 
         {/* Small floating accent orbs */}
@@ -94,7 +82,7 @@ export default function Home() {
             repeatType: "reverse",
             ease: "linear",
           }}
-          className="absolute w-[200px] h-[200px] rounded-full opacity-[0.08]"
+          className="absolute w-[200px] h-[200px] rounded-full opacity-[0.2]"
           style={{
             background:
               "radial-gradient(circle, rgba(255,200,100,0.9) 0%, transparent 60%)",
@@ -112,7 +100,7 @@ export default function Home() {
             repeatType: "reverse",
             ease: "linear",
           }}
-          className="absolute w-[150px] h-[150px] rounded-full opacity-[0.06]"
+          className="absolute w-[150px] h-[150px] rounded-full opacity-[0.15]"
           style={{
             background:
               "radial-gradient(circle, rgba(100,200,255,0.9) 0%, transparent 60%)",
@@ -121,10 +109,10 @@ export default function Home() {
 
         {/* Ambient overlay for depth */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.1]"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(255,100,50,0.1) 0%, rgba(100,50,255,0.1) 50%, transparent 100%)",
+              "radial-gradient(ellipse at center, rgba(255,100,50,0.3) 0%, rgba(100,50,255,0.3) 50%, transparent 100%)",
           }}
         />
 
