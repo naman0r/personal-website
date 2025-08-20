@@ -374,6 +374,9 @@ const Sidebar: React.FC<SidebarProps> = ({
               />
             ))}
           </ul>
+
+          {/* Divider after navigation */}
+          <div className="my-4 mx-auto w-8 h-px bg-white/10"></div>
         </nav>
 
         {/* Connect Section */}
@@ -488,6 +491,11 @@ const Sidebar: React.FC<SidebarProps> = ({
                     </span>
                   </button>
                 ))}
+
+                {/* Divider after music controls */}
+                {hasConsented && musicControls.length > 0 && (
+                  <div className="w-8 h-px bg-white/10 my-2"></div>
+                )}
 
                 {/* Social Links */}
                 {socialLinks.map((s) => {
