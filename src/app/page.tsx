@@ -9,6 +9,10 @@ export default function Home() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const y = useTransform(scrollY, [0, 300], [0, -50]);
 
+  useEffect(() => {
+    console.log("asking for consent");
+  });
+
   return (
     <div className="min-h-screen bg-black/50  text-white overflow-hidden">
       <p className="text-gray-400 text-xs flex flex-col justify-end items-end pr-5 pt-5">

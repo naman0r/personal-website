@@ -9,9 +9,11 @@ export default function MusicConsentPopup() {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    // Only show popup on landing page and every time they reload
-    const isHomePage = window.location.pathname === "/";
-    if (isHomePage) {
+    // Show popup on homepage and all project pages
+    const isRelevantPage =
+      window.location.pathname === "/" ||
+      window.location.pathname.startsWith("/projects");
+    if (isRelevantPage) {
       const timer = setTimeout(() => {
         setShowPopup(true);
       }, 2000); // Show after 2 seconds
