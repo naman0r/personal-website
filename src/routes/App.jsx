@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import Terminal from "../components/Terminal";
 import TopNav from "../components/TopNav";
@@ -6,11 +7,25 @@ import MyPicture from "../components/MyPicture";
 import FooterMainPage from "../components/FooterMainPage";
 import "../styles/App.css";
 
+const DEST = "https://www.namanrusia.dev/";
+
 const App = () => {
   const comp = useRef(null);
   useLayoutEffect(() => {
     window.scroll(0, 0);
   }, []);
+
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const redirectParam = searchParams.get("redirect");
+    console.log("Redirect param:", redirectParam);
+
+    // If redirect parameter is not "false", redirect to new website
+    if (redirectParam !== "false") {
+      window.location.href = DEST;
+    }
+  }, [searchParams]);
 
   return (
     <div className="relative" ref={comp}>
