@@ -82,15 +82,15 @@ const Sidebar: React.FC<SidebarProps> = ({
   const navigationItems = useMemo(
     () => [
       { icon: AiOutlineHome, label: "Home", href: "/" },
-      { icon: HiOutlineBriefcase, label: "Experience", href: "/experience" },
       { icon: RiRocketLine, label: "Projects", href: "/projects" },
+      { icon: HiOutlineBriefcase, label: "Experience", href: "/experience" },
       //{ icon: HiOutlinePencilAlt, label: "Thoughts", href: "/blogs" },
       //{ icon: AiOutlineUser, label: "About", href: "/about" },
       //{ icon: AiOutlineMail, label: "Contact", href: "/contact" },
       //{ icon: HiOutlineWrench, label: "Tools", href: "/tools" },
       { icon: IoTerminal, label: "Terminal", href: "/terminal" },
-      { icon: FaComputer, label: "?", href: "/playground" },
-      { icon: HiOutlinePencilAlt, label: "Thoughts", href: "/blogs" },
+      { icon: FaComputer, label: "Playground", href: "/playground" },
+      //{ icon: HiOutlinePencilAlt, label: "Thoughts", href: "/blogs" },
     ],
     []
   );

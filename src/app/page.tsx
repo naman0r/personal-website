@@ -367,6 +367,15 @@ export default function Home() {
                 the rest of the pages of my personal website! Although this one
                 was text-heavy, the other pages are a lot more engaging and
                 grounded in immersion and interactivity.
+                <br />
+                <br />
+                you can view the source code for this website{" "}
+                <Link
+                  href="https://github.com/naman0r/namanrusia.dev"
+                  className="underline"
+                >
+                  here
+                </Link>
               </p>
             </div>
           </motion.div>

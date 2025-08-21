@@ -3,7 +3,7 @@ import Hidden from "@/components/Hidden";
 
 const page = () => {
   return (
-    <div className="pl-10">
+    <div className="pl-20">
       <Hidden />
     </div>
   );

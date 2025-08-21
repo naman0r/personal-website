@@ -28,7 +28,7 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
     pathname === "/playground"; */
   //const isHomePage = true;
 
-  const isHomePage = !(pathname === "/projects");
+  const isHomePage = !(pathname === "/hehe");
 
   if (isHomePage) {
     return (

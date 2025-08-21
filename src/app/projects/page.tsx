@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,8 +8,92 @@ import { FaArrowRightFromBracket } from "react-icons/fa6";
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sidebarExpanded, setSidebarExpanded] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check sidebar state and screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    // theres gotta be a better way to do this
+    const checkSidebarState = () => {
+      if (typeof window !== "undefined") {
+        const saved = localStorage.getItem("sidebar:expanded");
+        setSidebarExpanded(saved !== "0");
+      }
+    };
+
+    checkMobile();
+    checkSidebarState();
+
+    window.addEventListener("resize", checkMobile);
+
+    // Listen for sidebar state changes
+    const interval = setInterval(checkSidebarState, 100);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      clearInterval(interval);
+    };
+  }, []);
+
+  // Calculate left padding based on sidebar state
+  const getLeftPadding = () => {
+    if (isMobile) return "px-6";
+    return sidebarExpanded ? "pl-[280px] pr-12" : "pl-[108px] pr-12";
+  };
 
   const projects = [
+    {
+      title: "TandemCode",
+      subtitle: "Real-time collaborative interview prep tool",
+      description:
+        "Using WebSockets, Java Springboot and react to create a one-stop platform" +
+        "where students can find peers to do anonymous and non-anonymous code interviews and practice leetcode sytle questions",
+      tech: [
+        "React.js",
+        "Java",
+        "TypeScript",
+        "Docker",
+        "WebSockets",
+        "Spring Boot",
+        "Amazon Cloud Services (AWS)",
+        "Reactive Programming",
+      ],
+      status: "Current",
+      featured: true,
+      github: "https://github.com/naman0r/axiomai",
+      demo: "https://www.axiomai.space",
+      date: "March 2025",
+      image: "/tandemcode.png",
+      slug: "tandemcode",
+      hasDetailPage: true,
+    },
+
+    {
+      title: "AMA Automator",
+      subtitle: "Internal Tooling for TAMID",
+      description:
+        "Developed a full stack web app for TAMID at Northeastern to help with automating the Ask-me-anything process held on slack. Implemented Auth and Slack Webhooks.",
+      tech: [
+        "Supabase",
+        "React.js",
+        "Flask",
+        "Slack WebHooks",
+        "Internal Tooling",
+      ],
+      status: "Current",
+      featured: false,
+      github: "https://github.com/naman0r/ama-consulting-project",
+      demo: "",
+      date: "March 2025",
+      image: "/ama.png",
+      slug: "ama-automator",
+      hasDetailPage: false,
+    },
+
     {
       title: "Axiom AI",
       subtitle: "AI-powered Student Productivity Platform",
@@ -34,6 +118,22 @@ export default function Projects() {
       slug: "axiom-ai",
       hasDetailPage: true,
     },
+
+    {
+      title: "TaNews",
+      subtitle: "Full Stack News Platform",
+      description:
+        "Full Stack news app with posting, reading, liking, Admin and User separation, etc.",
+      tech: ["Docker", "Flask", "React", "TypeScript", "MySQL"],
+      status: "Current",
+      featured: false,
+      github: "https://github.com/IpDaniel/tanews/tree/naman",
+      demo: "",
+      date: "Spring 2025",
+      image: "/tanews.png",
+      slug: "tanews",
+      hasDetailPage: false,
+    },
     {
       title: "MindfulMomentum",
       subtitle: "Smart Productivity & Habits App",
@@ -57,26 +157,21 @@ export default function Projects() {
       hasDetailPage: true,
     },
     {
-      title: "AMA Automator",
-      subtitle: "Internal Tooling for TAMID",
+      title: "NUtrition",
+      subtitle: "University Dining Nutrition Tracker",
       description:
-        "Developed a full stack web app for TAMID at Northeastern to help with automating the Ask-me-anything process held on slack. Implemented Auth and Slack Webhooks.",
-      tech: [
-        "Supabase",
-        "React.js",
-        "Flask",
-        "Slack WebHooks",
-        "Internal Tooling",
-      ],
+        "Full Stack app that scrapes nutritional information from the University Dining Hall website, and users are allowed to keep detailed logs and track their meals and diet over time.",
+      tech: ["Selenium.py", "React", "Firebase", "Flask", "Supabase"],
       status: "Current",
       featured: false,
-      github: "https://github.com/naman0r/ama-consulting-project",
-      demo: "",
-      date: "March 2025",
-      image: "/ama.png",
-      slug: "ama-automator",
+      github: "https://github.com/Oasis-NEU/sp25-group-11",
+      demo: "https://nutrition-oasis.vercel.app/",
+      date: "Spring 2025",
+      image: "/NUtrition.png",
+      slug: "nutrition",
       hasDetailPage: false,
     },
+
     {
       title: "BackBuddy App",
       subtitle: "Arduino-Integrated Posture Tracker",
@@ -107,21 +202,7 @@ export default function Projects() {
       slug: "car2drvr",
       hasDetailPage: false,
     },
-    {
-      title: "NUtrition",
-      subtitle: "University Dining Nutrition Tracker",
-      description:
-        "Full Stack app that scrapes nutritional information from the University Dining Hall website, and users are allowed to keep detailed logs and track their meals and diet over time.",
-      tech: ["Selenium.py", "React", "Firebase", "Flask", "Supabase"],
-      status: "Current",
-      featured: false,
-      github: "https://github.com/Oasis-NEU/sp25-group-11",
-      demo: "https://nutrition-oasis.vercel.app/",
-      date: "Spring 2025",
-      image: "/NUtrition.png",
-      slug: "nutrition",
-      hasDetailPage: false,
-    },
+
     {
       title: "StudyBuddy",
       subtitle: "University Study Group Connector",
@@ -137,21 +218,7 @@ export default function Projects() {
       slug: "studybuddy",
       hasDetailPage: false,
     },
-    {
-      title: "TaNews",
-      subtitle: "Full Stack News Platform",
-      description:
-        "Full Stack news app with posting, reading, liking, Admin and User separation, etc.",
-      tech: ["Docker", "Flask", "React", "TypeScript", "MySQL"],
-      status: "Current",
-      featured: false,
-      github: "https://github.com/IpDaniel/tanews/tree/naman",
-      demo: "",
-      date: "Spring 2025",
-      image: "/tanews.png",
-      slug: "tanews",
-      hasDetailPage: false,
-    },
+
     {
       title: "Personal Website",
       subtitle: "Interactive Portfolio",
@@ -313,7 +380,9 @@ export default function Projects() {
   };
 
   return (
-    <div className="min-h-screen text-white py-12 px-6 relative overflow-hidden">
+    <div
+      className={`min-h-screen bg-black/20 text-white py-12 lg:py-12 ${getLeftPadding()} relative overflow-hidden transition-all duration-300`}
+    >
       {/* Dynamic Moving Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         {/* Primary gradient orb - Orange/Red */}
@@ -406,7 +475,7 @@ export default function Projects() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -417,11 +486,31 @@ export default function Projects() {
           <h1 className="text-5xl md:text-6xl font-light mb-6 tracking-tight">
             Projects
           </h1>
-          <p className="text-xl text-gray-400 font-light max-w-3xl">
-            A collection of projects I've built, ranging from AI-powered
-            platforms to productivity tools. Click on featured projects to dive
-            deeper into my thought process.
-          </p>
+          <div className="text-xl text-gray-400 font-light max-w-3xl">
+            These are some of the Projects that I have worked on.
+            <p className="mt-4 text-lg italic text-gray-400 font-light border-l-4 border-purple-500/30 pl-4">
+              "Talk is cheap. Show me the code."
+              <span className="block mt-2 text-sm text-gray-500">
+                — Linus Torvalds (creator of Linux)
+              </span>
+            </p>
+            <p className="pt-10 text-sm">
+              You can find the source code for all of my projects on my{" "}
+              <a
+                href="https://github.com/naman0r"
+                target="_blank"
+                className="hover:text-red-100 transition-colors underline"
+              >
+                GitHub
+              </a>
+              {". "}I lead every project with curiosity, crave to learn, and
+              with the purpose of creating a tangible impact or at the very
+              least a proof of concept. I am always looking for new projects to
+              work on, so feel free to reach out to me if you have any ideas!
+              Some of the projects below have specific pages that go into more
+              detail about them. Click on 'View Details'.
+            </p>
+          </div>
         </motion.div>
 
         {/* Category Filter */}
@@ -436,9 +525,9 @@ export default function Projects() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 text-sm rounded-full transition-all duration-300 ${
+                className={`px-4 py-2 text-sm  transition-all duration-900 ${
                   selectedCategory === category
-                    ? "bg-white text-black font-medium"
+                    ? "bg-blue-200/90 text-black font-medium"
                     : "bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800"
                 }`}
               >
@@ -468,7 +557,7 @@ export default function Projects() {
           className="pt-16 border-t border-gray-900"
         >
           <h2 className="text-sm uppercase tracking-[0.2em] text-gray-600 mb-8">
-            Open Source
+            GitHub
           </h2>
           <div className="mb-6">
             <img
