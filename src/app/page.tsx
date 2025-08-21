@@ -236,7 +236,7 @@ export default function Home() {
                   of my childhood. Having such a diverse upbringing is something
                   that I am immensemly grateful for. During High School in
                   Singapore, I was obsessed with entrepreneurship and building.
-                  I co-founde my High School's Entrepreneurship Club, and lead
+                  I co-founded my High School's Entrepreneurship Club, and lead
                   us to winning the JA Company of The Year competition during my
                   Junior year. This experience was pivotal for me, and got me
                   interested in the technical side of building. I highlight this
@@ -251,14 +251,14 @@ export default function Home() {
               <div>
                 <h3 className="text-xl font-light text-white mb-4">Focus</h3>
                 <p className="text-gray-400 leading-relaxed">
-                  I love learning. Outside of my internships, I love taking on
-                  side projects and learning something new every couple of days.
-                  Recently I've been learning about Neural Networks and their
-                  implementation with the help of{" "}
+                  I love learning. Outside of internships and classes, I love
+                  taking on side projects and learning something new every
+                  couple of days. Recently I've been learning about Neural
+                  Networks and their implementation with the help of{" "}
                   <Link
                     href="https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&si=HDnjdU1r9EJlTFqt"
                     target="_blank"
-                    className="underline"
+                    className="underline hover:text-lime-500"
                   >
                     Andrej Karpathy's playlist.
                   </Link>{" "}
@@ -266,6 +266,7 @@ export default function Home() {
                   <Link
                     href="https://github.com/naman0r/tandemcode"
                     className="underline hover:text-sky-300"
+                    target="_blank"
                   >
                     TandemCode
                   </Link>{" "}
