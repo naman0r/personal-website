@@ -11,6 +11,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black/50  text-white overflow-hidden">
+      <p className="text-gray-400 text-xs flex flex-col justify-end items-end pr-5 pt-5">
+        <a href="https://namanrusia.com?redirect=false" className="underline">
+          view old website here
+        </a>
+      </p>
       {/* Dynamic Ambient Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         {/* Primary gradient orb - Orange/Red */}
@@ -137,7 +142,7 @@ export default function Home() {
             transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
             <h1 className="text-5xl md:text-7xl font-light mb-8 tracking-tight">
-              <span className="text-gray-500">Hey, I'm</span> Naman
+              <span className="text-gray-500 glow">Hey, I'm</span> Naman
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed max-w-2xl">
