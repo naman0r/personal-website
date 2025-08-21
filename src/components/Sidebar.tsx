@@ -53,6 +53,9 @@ const Sidebar: React.FC<SidebarProps> = ({
   const { isPlaying, isMuted, hasConsented, togglePlay, toggleMute } =
     useMusic();
 
+  // On mobile, always treat as expanded when open
+  const isExpanded = isMobile || expanded;
+
   // Check if mobile
   useEffect(() => {
     const checkMobile = () => {
@@ -186,7 +189,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           aria-current={active ? "page" : undefined}
           className={
             `group relative flex items-center rounded-xl text-sm font-medium transition-all outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/70 ` +
-            (expanded ? "gap-3 px-3 py-2.5" : "justify-center px-2 py-3") +
+            (isExpanded ? "gap-3 px-3 py-2.5" : "justify-center px-2 py-3") +
             " " +
             (active
               ? "bg-white text-gray-900 shadow-[inset_0_0_0_1px_rgba(17,24,39,0.08)]"
@@ -195,11 +198,11 @@ const Sidebar: React.FC<SidebarProps> = ({
         >
           <Icon
             className={`shrink-0 transition-all ${
-              expanded ? "h-5 w-5" : "h-6 w-6"
+              isExpanded ? "h-5 w-5" : "h-6 w-6"
             }`}
           />
           <AnimatePresence initial={false}>
-            {expanded && (
+            {isExpanded && (
               <motion.span
                 initial={{ opacity: 0, x: -6 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -212,7 +215,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           </AnimatePresence>
 
           {/* Tooltip when collapsed */}
-          {!expanded && (
+          {!isExpanded && (
             <span className="pointer-events-none absolute left-full top-1/2 -translate-y-1/2 ml-3 scale-95 opacity-0 rounded-lg bg-gray-900/95 px-3 py-2 text-xs text-white shadow-lg ring-1 ring-white/10 transition-all group-hover:opacity-100 group-hover:scale-100 whitespace-nowrap z-50">
               {label}
             </span>
@@ -245,7 +248,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         animate={{
           // Mobile: slide in/out based on isOpen, Desktop: always visible but width changes
           x: isMobile ? (isOpen ? 0 : -320) : 0,
-          width: expanded ? 260 : 88,
+          width: isExpanded ? 260 : 88,
         }}
         transition={{
           type: "spring",
@@ -255,13 +258,18 @@ const Sidebar: React.FC<SidebarProps> = ({
         }}
         className={`${
           isMobile ? "fixed" : "sticky"
-        } inset-y-0 left-0 z-50 flex h-screen flex-col border-r border-white/10 bg-gray-950/90 px-2 py-3 shadow-2xl shadow-black/40 backdrop-blur-xl`}
+        } inset-y-0 left-0 z-50 flex h-screen flex-col border-r transition-all duration-200 bg-gray-950/90 px-2 py-3 shadow-2xl shadow-black/40 backdrop-blur-xl ${
+          !isMobile && !isExpanded
+            ? "border-white/20 hover:border-blue-500/30 cursor-pointer"
+            : "border-white/10"
+        }`}
         style={{
           backgroundImage:
             "radial-gradient(1200px 400px at -10% -10%, rgba(99,102,241,0.12), transparent 40%), radial-gradient(1200px 400px at 110% 110%, rgba(56,189,248,0.12), transparent 40%)",
         }}
         role="navigation"
         aria-label="Primary"
+        onClick={!isMobile && !isExpanded ? () => setExpanded(true) : undefined}
       >
         {/* Mobile close button */}
         {isMobile && (
@@ -280,7 +288,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <div className="mb-6 px-2">
           <div
             className={`flex items-center ${
-              expanded ? "gap-3" : "justify-center"
+              isExpanded ? "gap-3" : "justify-center"
             }`}
           >
             <div className="relative group">
@@ -294,20 +302,41 @@ const Sidebar: React.FC<SidebarProps> = ({
                 aria-hidden
               />
 
-              {/* Hover to expand trigger for desktop */}
-              {!isMobile && !expanded && (
-                <button
-                  onClick={() => setExpanded(true)}
-                  className="absolute inset-0 rounded-full bg-black/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
-                  aria-label="Expand sidebar"
-                >
-                  <span className="text-white text-xs">→</span>
-                </button>
+              {/* Expand trigger for desktop - always visible with subtle hint */}
+              {!isMobile && !isExpanded && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <button
+                    onClick={() => setExpanded(true)}
+                    className="absolute inset-0 rounded-full bg-black/0 hover:bg-black/30 transition-all duration-200 flex items-center justify-center group"
+                    aria-label="Expand sidebar"
+                  >
+                    <div className="relative">
+                      {/* Subtle expand hint - always visible */}
+                      <div className="w-2 h-2 bg-white/20 rounded-full animate-pulse group-hover:bg-white/60 transition-colors" />
+                      {/* Arrow on hover */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <svg
+                          className="w-3 h-3 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </button>
+                </div>
               )}
             </div>
 
             <AnimatePresence initial={false}>
-              {expanded && (
+              {isExpanded && (
                 <motion.div
                   initial={{ opacity: 0, x: -6 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -324,10 +353,23 @@ const Sidebar: React.FC<SidebarProps> = ({
                     {!isMobile && (
                       <button
                         onClick={() => setExpanded(false)}
-                        className="p-1 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                        className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200 group border border-transparent hover:border-white/20"
                         aria-label="Collapse sidebar"
+                        title="Collapse sidebar"
                       >
-                        <span className="text-xs">←</span>
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 19l-7-7 7-7"
+                          />
+                        </svg>
                       </button>
                     )}
                   </div>
@@ -337,7 +379,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           </div>
 
           <AnimatePresence initial={false}>
-            {expanded && (
+            {isExpanded && (
               <motion.div
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -378,12 +420,61 @@ const Sidebar: React.FC<SidebarProps> = ({
 
           {/* Divider after navigation */}
           <div className="my-4 mx-auto w-8 h-px bg-white/10"></div>
+
+          {/* Expand hint when collapsed */}
+          {!isMobile && !isExpanded && (
+            <div className="flex flex-col items-center gap-2 px-1 py-3">
+              <div className="w-6 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
+              <div className="text-[10px] text-gray-500 text-center rotate-90 whitespace-nowrap select-none">
+                Click to expand
+              </div>
+              <div className="w-6 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
+            </div>
+          )}
         </nav>
+
+        {/* Expand/Collapse Button for Desktop */}
+        {!isMobile && (
+          <div className="px-2 py-2">
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="w-full flex items-center justify-center gap-2 px-3 py-2 text-xs text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group"
+              aria-label={isExpanded ? "Collapse sidebar" : "Expand sidebar"}
+              title={isExpanded ? "Collapse sidebar" : "Expand sidebar"}
+            >
+              <svg
+                className="w-3 h-3 transition-transform group-hover:scale-110"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={isExpanded ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"}
+                />
+              </svg>
+              <AnimatePresence initial={false}>
+                {isExpanded && (
+                  <motion.span
+                    initial={{ opacity: 0, width: 0 }}
+                    animate={{ opacity: 1, width: "auto" }}
+                    exit={{ opacity: 0, width: 0 }}
+                    className="overflow-hidden whitespace-nowrap"
+                  >
+                    Collapse
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </button>
+          </div>
+        )}
 
         {/* Connect Section */}
         <div className="mt-auto w-full px-2 pb-3 pt-3">
           <AnimatePresence initial={false}>
-            {expanded && (
+            {isExpanded && (
               <motion.h4
                 initial={{ opacity: 0, x: -6 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -395,8 +486,8 @@ const Sidebar: React.FC<SidebarProps> = ({
             )}
           </AnimatePresence>
 
-          <div className={`${expanded ? "px-1" : "px-0"}`}>
-            {expanded ? (
+          <div className={`${isExpanded ? "px-1" : "px-0"}`}>
+            {isExpanded ? (
               // Expanded: horizontal layout with labels
               <div className="space-y-4">
                 {/* Music Controls */}
@@ -524,7 +615,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
           {/* Footer */}
           <AnimatePresence initial={false}>
-            {expanded && (
+            {isExpanded && (
               <motion.div
                 initial={{ opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
