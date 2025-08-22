@@ -4,9 +4,11 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
 
 export default function Projects() {
+  const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sidebarExpanded, setSidebarExpanded] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
@@ -269,7 +271,7 @@ export default function Projects() {
   const ProjectCard = ({ project, index }: { project: any; index: number }) => {
     const handleCardClick = () => {
       if (project.hasDetailPage) {
-        window.location.href = `/projects/${project.slug}`;
+        router.push(`/projects/${project.slug}`);
       }
     };
 

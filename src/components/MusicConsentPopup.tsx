@@ -57,6 +57,10 @@ export default function MusicConsentPopup() {
               it off in the sidebar.
             </p>
 
+            <p className="text-gray-600 text-xs mb-6">
+              Music may contain profanity.
+            </p>
+
             <div className="flex gap-3">
               <button
                 onClick={() => handleConsent(true)}

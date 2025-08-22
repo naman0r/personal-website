@@ -50,8 +50,14 @@ const Sidebar: React.FC<SidebarProps> = ({
   const pathname = usePathname();
   const [expanded, setExpanded] = useState<boolean>(initialExpanded);
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const { isPlaying, isMuted, hasConsented, togglePlay, toggleMute } =
-    useMusic();
+  const {
+    isPlaying,
+    isMuted,
+    hasConsented,
+    currentSong,
+    togglePlay,
+    toggleMute,
+  } = useMusic();
 
   // On mobile, always treat as expanded when open
   const isExpanded = isMobile || expanded;
@@ -96,8 +102,6 @@ const Sidebar: React.FC<SidebarProps> = ({
   );
 
   const musicControls = useMemo(() => {
-    if (!hasConsented) return [];
-
     return [
       {
         id: "play-pause",
@@ -114,7 +118,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         showIndicator: false,
       },
     ];
-  }, [hasConsented, isPlaying, isMuted, togglePlay, toggleMute]);
+  }, [isPlaying, isMuted, togglePlay, toggleMute]);
 
   const socialLinks = useMemo(
     () => [
@@ -491,44 +495,50 @@ const Sidebar: React.FC<SidebarProps> = ({
               // Expanded: horizontal layout with labels
               <div className="space-y-4">
                 {/* Music Controls */}
-                {hasConsented && (
-                  <div className="px-4 py-3 border-t border-white/10">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <motion.div
-                          animate={{ scale: isPlaying ? [1, 1.1, 1] : 1 }}
-                          transition={{
-                            duration: 0.6,
-                            repeat: isPlaying ? Infinity : 0,
-                          }}
-                          className="w-2 h-2 bg-green-500 rounded-full"
-                        />
-                        <span className="text-xs text-gray-400">
-                          {isPlaying ? "Playing" : "Paused"}
-                        </span>
-                      </div>
-
-                      <div className="flex items-center gap-2">
-                        {musicControls.map((control) => (
-                          <button
-                            key={control.id}
-                            onClick={control.onClick}
-                            className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 transition-colors group"
-                            title={control.label}
-                          >
-                            {getMusicIcon(control.icon)}
-                          </button>
-                        ))}
-                      </div>
+                <div className="px-4 py-3 border-t border-white/10">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <motion.div
+                        animate={{ scale: isPlaying ? [1, 1.1, 1] : 1 }}
+                        transition={{
+                          duration: 0.6,
+                          repeat: isPlaying ? Infinity : 0,
+                        }}
+                        className={`w-2 h-2 rounded-full ${
+                          hasConsented && isPlaying
+                            ? "bg-green-500"
+                            : "bg-gray-500"
+                        }`}
+                      />
+                      <span className="text-xs text-gray-400">
+                        {hasConsented
+                          ? isPlaying
+                            ? "Playing"
+                            : "Paused"
+                          : "Ready"}
+                      </span>
                     </div>
 
-                    <div className="mt-2">
-                      <p className="text-xs text-gray-500 truncate">
-                        Fast Life
-                      </p>
+                    <div className="flex items-center gap-2">
+                      {musicControls.map((control) => (
+                        <button
+                          key={control.id}
+                          onClick={control.onClick}
+                          className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 transition-colors group"
+                          title={control.label}
+                        >
+                          {getMusicIcon(control.icon)}
+                        </button>
+                      ))}
                     </div>
                   </div>
-                )}
+
+                  <div className="mt-2">
+                    <p className="text-xs text-gray-500 truncate">
+                      {currentSong || "grab some headphones!"}
+                    </p>
+                  </div>
+                </div>
 
                 {/* Social Links */}
                 <div className="flex justify-start gap-2">
@@ -573,7 +583,11 @@ const Sidebar: React.FC<SidebarProps> = ({
                           duration: 1,
                           repeat: isPlaying ? Infinity : 0,
                         }}
-                        className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full"
+                        className={`absolute -top-1 -right-1 w-3 h-3 rounded-full ${
+                          hasConsented && isPlaying
+                            ? "bg-green-500"
+                            : "bg-gray-500"
+                        }`}
                       />
                     )}
 
@@ -585,7 +599,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 ))}
 
                 {/* Divider after music controls */}
-                {hasConsented && musicControls.length > 0 && (
+                {musicControls.length > 0 && (
                   <div className="w-8 h-px bg-white/10 my-2"></div>
                 )}
 
