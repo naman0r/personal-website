@@ -16,6 +16,9 @@ export default function Home() {
           view old website here
         </a>
       </p>
+      <p className="text-gray-400 text-xs flex flex-col justify-end items-end pr-5 pt-2">
+        📍 Boston, MA
+      </p>
       {/* Dynamic Ambient Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         {/* Primary gradient orb - Orange/Red */}
