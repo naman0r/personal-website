@@ -95,7 +95,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       //{ icon: AiOutlineMail, label: "Contact", href: "/contact" },
       //{ icon: HiOutlineWrench, label: "Tools", href: "/tools" },
       { icon: IoTerminal, label: "Terminal", href: "/terminal" },
-      { icon: FaComputer, label: "Playground", href: "/playground" },
+      //{ icon: FaComputer, label: "Playground", href: "/playground" },
       //{ icon: HiOutlinePencilAlt, label: "Thoughts", href: "/blogs" },
     ],
     []
